@@ -18,11 +18,11 @@ namespace Computer_Programme
         public int score = 0;
         int optionNumber = 0;
         public int meaningIndex { get; private set; }
-        string[] maoriWords = { "Aotearoa ", "aroha", "awa ", "haka ", "hangi ", "hapu", "hīkoi", "hui ", "iti", "iwi ", "kai ",
-            "karakia ", "kaumatua ", "kauri ", "kiwi ", "koha ", "kōhanga reo", "mahi ", "mana ", "manuhiri ", "Māori ", "marae ",
-            "maunga", "moa", "moana ", "motu", "nui ", "pā ", "Pākehā ", "pounamu ", "puku ", "rangatira ", "taihoa ", "tama ", 
-            "tamāhine ", "tamariki ", "tāne ", "tangi ", "taonga ", "tapu ", "te reo Māori ", "tipuna", "tuatara ", "wahine ",
-            "wai", "waiata ", "waka ", "whaikōrero ", "whakapapa ", "whānau ", "whenua " };
+        string[] maoriWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hīkoi", "hui", "iti", "iwi", "kai",
+            "karakia", "kaumatua", "kauri", "kiwi", "koha", "kōhanga reo", "mahi", "mana", "manuhiri", "Māori", "marae",
+            "maunga", "moa", "moana", "motu", "nui", "pā", "Pākehā", "pounamu", "puku", "rangatira", "taihoa", "tama", 
+            "tamāhine", "tamariki", "tāne", "tangi", "taonga", "tapu", "te reo Māori", "tipuna", "tuatara ", "wahine",
+            "wai", "waiata", "waka", "whaikōrero", "whakapapa", "whānau", "whenua" };
         string[] meaning = { "(New Zealand, long white cloud)", "(love)", "(river)", "(generic term for Māori dance. )",
             "(traditional feast prepared in earth oven)", " (clan, sub-tribe; to be born )", "(walk)", " (gathering, meeting)", 
             " (small)", " (tribe)", "(food)", "(prayer)", "(elder)", "(large native conifer)", "(native flightless bird)", 
@@ -125,13 +125,22 @@ namespace Computer_Programme
             {
                 if (score == 10)
                 {
+                    
                     MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");
-                    Close();
+                    this.Hide();
+                    Form2 form = new Form2();
+                    form.Show();
                 }
                 else
                 {
+                    
                     MessageBox.Show($"You got {score} out of 10", "Congratulations");
-                    Close();
+                    this.Hide();
+                    Form2 form = new Form2();
+                    form.Show();
+                    
+                   
+                    
                 }
             }
 
@@ -141,9 +150,5 @@ namespace Computer_Programme
             }
             flag++;
         }
-
-
-
-
     }
 }

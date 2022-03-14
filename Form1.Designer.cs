@@ -113,7 +113,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
-            this.ClientSize = new System.Drawing.Size(960, 457);
+            this.ClientSize = new System.Drawing.Size(980, 457);
             this.Controls.Add(this.engWord);
             this.Controls.Add(this.tickBox);
             this.Controls.Add(this.option3);
