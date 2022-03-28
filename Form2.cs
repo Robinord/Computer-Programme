@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,23 +13,24 @@ namespace Computer_Programme
 {
     public partial class Form2 : Form
     {
-
-        int flag = 0;
+        int flag = 0;//the counter for the amounts of time the tickbox has been clicked and the screen has been refreshed;
         Random rnd = new Random();
-        int index = 0;
-        public string answer;
-        public int score = 0;
-        public int meaningIndex { get; private set; }
+        int index = 0;//the counter for index for the new used number to go to
+        string answer;// the text entered in the textbox
+        int score = 0;//the counter for current score
+        int meaningIndex;//declared to make the index for the meaning 
         string[] maoriWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hīkoi", "hui", "iti", "iwi", "kai",
             "karakia", "kaumatua", "kauri", "kiwi", "koha", "kōhanga reo", "mahi", "mana", "manuhiri", "Māori", "marae",
             "maunga", "moa", "moana", "motu", "nui", "pā", "Pākehā", "pounamu", "puku", "rangatira", "taihoa", "tama",
             "tamāhine", "tamariki", "tāne", "tangi", "taonga", "tapu", "te reo Maori", "tipuna", "tuatara", "wahine",
             "wai", "waiata", "waka", "whaikōrero", "whakapapa", "whānau", "whenua" };
+            //made an array for all the maori words
         string[] correctionWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hikoi", "hui", "iti", "iwi", "kai",
             "karakia", "kaumatua", "kauri", "kiwi", "koha", "kohanga reo", "mahi", "mana", "manuhiri", "Maori", "marae",
             "maunga", "moa", "moana", "motu", "nui", "pa", "Pakeha", "pounamu", "puku", "rangatira", "taihoa", "tama",
             "tamahine", "tamariki", "tane", "tangi", "taonga", "tapu", "Maori", "tipuna", "tuatara", "wahine",
             "wai", "waiata", "waka", "whaikorero", "whakapapa", "whanau", "whenua" };
+            //made an array for the alternative maori that could be entered by the user
         string[] meaning = { "(New Zealand, long white cloud)", "(love)", "(river)", "(generic term for Māori dance. )",
             "(traditional feast prepared in earth oven)", " (clan, sub-tribe; to be born )", "(walk)", " (gathering, meeting)",
             " (small)", " (tribe)", "(food)", "(prayer)", "(elder)", "(large native conifer)", "(native flightless bird)",
@@ -44,74 +46,60 @@ namespace Computer_Programme
             " (the Māori Language)", "(ancestor )", " (reptiles endemic to New Zealand, the order Rhynchocephalia)",
             "(woman, wife)", " (water)", "(song or chant)", "(canoe, canoe group)", " (the art and practise of speech-making )",
             "(genealogy, to recite genealogy )", "(extended family)", "(land, homeland)" };
-        int[] usedNumbers = new int[10];
-        public void Refresh()
+            //made an array with the meanings of the maori words at the same index
+        int[] usedNumbers = new int[10];//made an array for the used numbers so they don't get repeated
+        public void Refresh()//made to refresh the meaning displayed on screen
         {
-            meaningIndex = uniqueRnd();
+            meaningIndex = uniqueRnd(49);//stores a random unique index with max value 49
             engWord.Text = meaning[meaningIndex];
-            Console.WriteLine(maoriWords[meaningIndex]);
-
         }
         public void CheckScore()
         {
-            if (answer == null)
+            if (answer == null)//to noot run into error if user doesn't enter anything
             {
-                Console.WriteLine("*");
                 answer = " ";
             }
-                if (answer.ToLower() == (maoriWords[meaningIndex]).ToLower() || answer.ToLower() == (correctionWords[meaningIndex]).ToLower())
-            { score++; Console.WriteLine(score + answer); }
-            Console.WriteLine(answer);
+            if (answer.ToLower() == (maoriWords[meaningIndex]).ToLower() || answer.ToLower() == (correctionWords[meaningIndex]).ToLower())//to check if the answer entered is right
+            {
+                score++;
+            }
         }
 
-        public int uniqueRnd()
+        public int uniqueRnd(int maxValue)//method to choose a different random number each time it is run
         {
 
-            while (true)
+            while (true)//while method keeps on going until a number is returned
             {
-                bool unique = true;
-                int rndNumber = rnd.Next(50);
+                bool unique = true;//assumes that the number is unique at first until proved otherwise
+                int rndNumber = rnd.Next(maxValue + 1);//chooses a random number below 50
 
-                foreach (int usedNumber in usedNumbers)
+                foreach (int usedNumber in usedNumbers)//goes through each number in the usedNumbers array
                 {
                     if (rndNumber == usedNumber)
                     {
-                        unique = false;
+                        unique = false;//if a number in the array is the same as this number then unique is false and a value isn't returned and the process repeats
                     }
                 }
                 if (unique == true)
                 {
-                    usedNumbers[index] = rndNumber;
-                    index++;
+                    usedNumbers[index] = rndNumber;//puts the new unique random number in the array of used numbers
+                    index++;//changes the current index of the used number to be placed in
                     return rndNumber;
-                    ;
                 }
             }
-
         }
 
-
-        public Form2()
+        public void Run()
         {
-            InitializeComponent();
-        }
-
-
-        private void input_TextChanged(object sender, EventArgs e)
-        {
-            answer = input.Text;
-      
-            
-        }
-
-        private void tickBox_Click(object sender, EventArgs e)
-        {
-            question.Text = "Write down the word with the same meaning. Press the checkbox to continue.";
-            if (flag >= 1)
+            if (flag == 0)//when clicked for the first time 
+            {
+                question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
+            }
+            if (flag >= 1)//so that score isn't checked the very first time the tickbox is clicked
             {
                 CheckScore();
             }
-            if (flag == 10)
+            if (flag == 10)//when all the questions have been asked, it shows the score
             {
                 if (score == 10)
                 {
@@ -122,53 +110,38 @@ namespace Computer_Programme
                 {
                     MessageBox.Show($"You got {score} out of 10", "Congratulations");
                     Application.Exit();
-
-
                 }
             }
-
-            if (flag < 10)
+            if (flag < 10)//to refresh the value on screen, except the very last time when all questions are done
             {
                 Refresh();
             }
+            input.Clear();//to clear the text in the inputbox
+            flag++;//updates the counter for the number of time the TickBox has been pressed
+        }
 
-            input.Clear();
-            flag++;
+        public Form2()
+        {
+            InitializeComponent();//initializing this form
+        }
+
+
+        private void input_TextChanged(object sender, EventArgs e)//to keep account of the text entered
+        {
+            answer = input.Text;
+        }
+
+        private void tickBox_Click(object sender, EventArgs e)
+        {
+            Run();
         }
 
         private void input_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)//to run the same code as tickbox when enter key pressed
             {
-                e.SuppressKeyPress = true;
-                question.Text = "Write down the word with the same meaning. Press the checkbox to continue.";
-                if (flag >= 1)
-                {
-                    CheckScore();
-                }
-                if (flag == 10)
-                {
-                    if (score == 10)
-                    {
-                        MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");
-                        Application.Exit();
-                    }
-                    else
-                    {
-                        MessageBox.Show($"You got {score} out of 10", "Congratulations");
-                        Application.Exit();
-
-
-                    }
-                }
-
-                if (flag < 10)
-                {
-                    Refresh();
-                }
-
-                input.Clear();
-                flag++;
+                e.SuppressKeyPress = true;//to suppress the system sound of pressing enter in a single lined text box
+                Run();
             }
         }
     }
