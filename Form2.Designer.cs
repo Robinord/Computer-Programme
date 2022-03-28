@@ -37,7 +37,7 @@
             // input
             // 
             this.input.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.input.Location = new System.Drawing.Point(450, 281);
+            this.input.Location = new System.Drawing.Point(441, 281);
             this.input.Name = "input";
             this.input.Size = new System.Drawing.Size(112, 26);
             this.input.TabIndex = 0;
@@ -69,7 +69,7 @@
             // 
             this.tickBox.BackColor = System.Drawing.Color.MediumAquamarine;
             this.tickBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tickBox.Location = new System.Drawing.Point(465, 338);
+            this.tickBox.Location = new System.Drawing.Point(460, 338);
             this.tickBox.Name = "tickBox";
             this.tickBox.Size = new System.Drawing.Size(75, 57);
             this.tickBox.TabIndex = 10;
