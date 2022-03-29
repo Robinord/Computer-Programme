@@ -1,4 +1,33 @@
-﻿
+﻿/*
+This programme will ask the user for the maori word corresponding to the meaning displayed
+list of Maori Words = string[50 values]
+list of alternate Maori words = string[50 values]
+list of the meanings = string [50 values]
+if tickBox pressed:
+    Call Run method()
+if Enter key pressed:
+    Suppress system sound 
+    Call Run Method()
+Run Method()
+    Call refresh method()
+    Call score method()
+    if used 10 times:
+        Show Score
+        Exit Application
+Refresh Method()
+    Meaning = Meanings[Call Unique Random Number method(max value: 49)]
+Check Score Method()
+    If Text Entered is the maori word which corresponds to the meaning:
+        Score + 1
+Unique Random Number Method()
+    While(Until Returns)
+        Generate Random Number(below 50)
+        if Random Number already used:
+            Generate another Random Number(below 50)
+        else:
+            Save Random Number as Used Numbers
+            Return Random Number
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
