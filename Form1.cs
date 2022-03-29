@@ -1,4 +1,31 @@
-﻿using System;
+﻿/*
+This programme will is Multiple Choice Questions quiz
+list of MaoriWords = string[50 values]
+list of the meanings = string [50 values]
+if tickBox pressed:
+    Call refresh method()
+    Call score method()
+    if pressed 10 times:
+        Show Score
+        Open Form2
+Refresh Method()
+    Option 1 = MaoriWords[Call Unique Random Number method(max value:49)]
+    Option 2 = MaoriWords[Call Unique Random Number method(max value:49)]
+    Option 3 = MaoriWords[Call Unique Random Number method(max value:49)]
+    Meaning = Meaning of Option 1, Option 2 or Option 3
+Check Score Method()
+    If option Number chosen is equal to option used by meaning:
+        Score + 1
+Unique Random Number Method()
+    While(Until Returns)
+        Generate Random Number(below 50)
+        if Random Number already used:
+            Generate another Random Number(below 50)
+        else:
+            Save Random Number as Used Numbers
+            Return Random Number
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +44,7 @@ namespace Computer_Programme
         int index = 0;//the counter for index for the new used number to go to
         int score = 0;//the counter for current score
         int optionNumber = 0;//the variable for which option is currently pressed
-        int meaningIndex;//declared to make the index for the meaning public so it could be used in any mehtod
+        int meaningIndex;//declared to make the index for the meaning 
         string[] maoriWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hīkoi", "hui", "iti", "iwi", "kai",
             "karakia", "kaumatua", "kauri", "kiwi", "koha", "kōhanga reo", "mahi", "mana", "manuhiri", "Māori", "marae",
             "maunga", "moa", "moana", "motu", "nui", "pā", "Pākehā", "pounamu", "puku", "rangatira", "taihoa", "tama", 
@@ -40,21 +67,14 @@ namespace Computer_Programme
             "(woman, wife)", " (water)", "(song or chant)", "(canoe, canoe group)", " (the art and practise of speech-making )", 
             "(genealogy, to recite genealogy )", "(extended family)", "(land, homeland)" };
             //made an array with the meanings of the maori words at the same index
-        int[] usedNumbers = new int[30];//made an array for the used numbers so they don'e get repeated
+        int[] usedNumbers = new int[30];//made an array for the used numbers so they don't get repeated
         int[] optionIndex = new int[3];//made an array for the current indexes that the options are using
-
-
-
-        public Form1()
-        {
-            InitializeComponent();//initializing this form
-        }
 
         public void Refresh()//made to refresh all the values on screen
         {
-            optionIndex[0] = uniqueRnd(49);
-            optionIndex[1] = uniqueRnd(49);
-            optionIndex[2] = uniqueRnd(49);
+            optionIndex[0] = UniqueRnd(49);
+            optionIndex[1] = UniqueRnd(49);
+            optionIndex[2] = UniqueRnd(49);
             //stores a random index for each option in the optionIndex array
             meaningIndex = rnd.Next(3);
             engWord.Text = meaning[optionIndex[meaningIndex]];//chooses a random index from the any of the index the options are using
@@ -71,8 +91,9 @@ namespace Computer_Programme
             //if the option number chosen is the same as the option's meaning that was displayed then add one to the score
         }
 
-        public int uniqueRnd(int maxValue)//method to choose a different random number each time it is run
+        public int UniqueRnd(int maxValue)//method to choose a different random number each time it is run
         {
+
             while (true)//while method keeps on going until a number is returned
             {
                 bool unique = true;//assumes that the number is unique at first until proved otherwise
@@ -91,15 +112,19 @@ namespace Computer_Programme
                     index++;//changes the current index of the used number to be placed in
                     return rndNumber;
                 }
-            }            
+            }     
+            
         }
 
+        public Form1()
+        {
+            InitializeComponent();//initializing this form
+        }
 
         private void option1_CheckedChanged(object sender, EventArgs e)
         {
             optionNumber = 1;//when option 1 is pressed
         }
-
 
         private void option2_CheckedChanged(object sender, EventArgs e)
         {
