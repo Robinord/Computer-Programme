@@ -145,7 +145,6 @@ namespace Computer_Programme
             if (flag >= 1)//so that score isn't checked the very first time the tickbox is clicked
             {
                 CheckScore();
- 
             }
             if (flag == 10)//when all the questions have been asked, it shows the score
             {
@@ -168,7 +167,7 @@ namespace Computer_Programme
             if (flag < 10)//to refresh the values on screen, except the very last time when all questions are done
             {
                 RefreshScreen();
-                progress.Text = $"{flag} / 10";
+                progress.Text = $"Question: {flag + 1} / 10";
             }
 
             flag++;//updates the counter for the number of time the TickBox has been pressed
