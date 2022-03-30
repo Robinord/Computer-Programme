@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.question = new System.Windows.Forms.Label();
             this.option1 = new System.Windows.Forms.RadioButton();
             this.option2 = new System.Windows.Forms.RadioButton();
@@ -35,6 +36,8 @@
             this.tickBox = new System.Windows.Forms.Button();
             this.engWord = new System.Windows.Forms.Label();
             this.progress = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timeLeft = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // question
@@ -119,12 +122,28 @@
             this.progress.Text = "Question: 0 / 10";
             this.progress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timeLeft
+            // 
+            this.timeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLeft.Location = new System.Drawing.Point(12, 38);
+            this.timeLeft.Name = "timeLeft";
+            this.timeLeft.Size = new System.Drawing.Size(256, 48);
+            this.timeLeft.TabIndex = 9;
+            this.timeLeft.Text = "Time left:  50 secs";
+            this.timeLeft.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
             this.ClientSize = new System.Drawing.Size(980, 457);
+            this.Controls.Add(this.timeLeft);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.engWord);
             this.Controls.Add(this.tickBox);
@@ -148,6 +167,8 @@
         private System.Windows.Forms.Button tickBox;
         public System.Windows.Forms.Label engWord;
         private System.Windows.Forms.Label progress;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label timeLeft;
     }
 }
 
