@@ -180,5 +180,10 @@ namespace Computer_Programme
 
             flag++;//updates the counter for the number of time the TickBox has been pressed
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
