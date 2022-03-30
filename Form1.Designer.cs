@@ -34,6 +34,7 @@
             this.option3 = new System.Windows.Forms.RadioButton();
             this.tickBox = new System.Windows.Forms.Button();
             this.engWord = new System.Windows.Forms.Label();
+            this.progress = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // question
@@ -108,12 +109,21 @@
             this.engWord.TabIndex = 7;
             this.engWord.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // progress
+            // 
+            this.progress.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
+            this.progress.Location = new System.Drawing.Point(839, 38);
+            this.progress.Name = "progress";
+            this.progress.Size = new System.Drawing.Size(129, 48);
+            this.progress.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
             this.ClientSize = new System.Drawing.Size(980, 457);
+            this.Controls.Add(this.progress);
             this.Controls.Add(this.engWord);
             this.Controls.Add(this.tickBox);
             this.Controls.Add(this.option3);
@@ -135,6 +145,7 @@
         private System.Windows.Forms.RadioButton option3;
         private System.Windows.Forms.Button tickBox;
         public System.Windows.Forms.Label engWord;
+        private System.Windows.Forms.Label progress;
     }
 }
 
