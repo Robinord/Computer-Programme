@@ -5,10 +5,12 @@ list of the meanings = string [50 values]
 if tickBox pressed:
     Call refresh method()
     Call score method()
+    Uncheck all the boxes
     if pressed 10 times:
         Show Score
         Open Form2
-Refresh Method()
+    Show the prgress
+Refresh Screen Method()
     Option 1 = MaoriWords[Call Unique Random Number method(max value:49)]
     Option 2 = MaoriWords[Call Unique Random Number method(max value:49)]
     Option 3 = MaoriWords[Call Unique Random Number method(max value:49)]
@@ -173,6 +175,7 @@ namespace Computer_Programme
             option1.Checked = false;
             option2.Checked = false;
             option3.Checked = false;
+            //for all the options checked to reset each time
             optionNumber = 0;
 
             flag++;//updates the counter for the number of time the TickBox has been pressed

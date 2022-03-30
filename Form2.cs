@@ -3,18 +3,21 @@ This programme will ask the user for the maori word corresponding to the meaning
 list of Maori Words = string[50 values]
 list of alternate Maori words = string[50 values]
 list of the meanings = string [50 values]
+if close button pressed:
+    Exit the whole programme
 if tickBox pressed:
     Call Run method()
 if Enter key pressed:
     Suppress system sound 
     Call Run Method()
 Run Method()
-    Call refresh method()
+    Call refresh screen method()
     Call score method()
     if used 10 times:
         Show Score
         Exit Application
-Refresh Method()
+    Update the progress Label
+Refresh screen Method()
     Meaning = Meanings[Call Unique Random Number method(max value: 49)]
 Check Score Method()
     If Text Entered is the maori word or the alternative maori word which corresponds to the meaning:
@@ -177,7 +180,7 @@ namespace Computer_Programme
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            Application.Exit();//so that the previous hidden form 1 closes along aswell
         }
     }
 }
