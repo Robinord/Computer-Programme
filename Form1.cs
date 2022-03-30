@@ -145,9 +145,6 @@ namespace Computer_Programme
             if (flag >= 1)//so that score isn't checked the very first time the tickbox is clicked
             {
                 CheckScore();
-                option1.Checked = false;
-                option2.Checked = false;
-                option3.Checked = false;
             }
             if (flag == 10)//when all the questions have been asked, it shows the score
             {
@@ -172,10 +169,12 @@ namespace Computer_Programme
                 RefreshScreen();
                 progress.Text = $"Question: {flag + 1} / 10";
             }
+
             option1.Checked = false;
             option2.Checked = false;
             option3.Checked = false;
             optionNumber = 0;
+
             flag++;//updates the counter for the number of time the TickBox has been pressed
         }
     }
