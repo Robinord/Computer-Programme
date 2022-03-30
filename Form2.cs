@@ -173,5 +173,10 @@ namespace Computer_Programme
                 Run();
             }
         }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
