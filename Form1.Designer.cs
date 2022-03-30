@@ -111,11 +111,13 @@
             // 
             // progress
             // 
-            this.progress.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
-            this.progress.Location = new System.Drawing.Point(839, 38);
+            this.progress.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progress.Location = new System.Drawing.Point(712, 38);
             this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(129, 48);
+            this.progress.Size = new System.Drawing.Size(256, 48);
             this.progress.TabIndex = 8;
+            this.progress.Text = "Question: 0 / 10";
+            this.progress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
             // 
