@@ -32,6 +32,7 @@
             this.engWord = new System.Windows.Forms.Label();
             this.question = new System.Windows.Forms.Label();
             this.tickBox = new System.Windows.Forms.Button();
+            this.progress = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // input
@@ -77,18 +78,30 @@
             this.tickBox.UseVisualStyleBackColor = false;
             this.tickBox.Click += new System.EventHandler(this.tickBox_Click);
             // 
+            // progress
+            // 
+            this.progress.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progress.Location = new System.Drawing.Point(706, 27);
+            this.progress.Name = "progress";
+            this.progress.Size = new System.Drawing.Size(256, 48);
+            this.progress.TabIndex = 11;
+            this.progress.Text = "Question: 0 / 10";
+            this.progress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
             this.ClientSize = new System.Drawing.Size(984, 461);
+            this.Controls.Add(this.progress);
             this.Controls.Add(this.tickBox);
             this.Controls.Add(this.question);
             this.Controls.Add(this.engWord);
             this.Controls.Add(this.input);
             this.Name = "Form2";
             this.Text = "Maori Quiz";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,5 +113,6 @@
         public System.Windows.Forms.Label engWord;
         private System.Windows.Forms.Label question;
         private System.Windows.Forms.Button tickBox;
+        private System.Windows.Forms.Label progress;
     }
 }

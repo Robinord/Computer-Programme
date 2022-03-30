@@ -144,6 +144,7 @@ namespace Computer_Programme
             if (flag < 10)//to refresh the value on screen, except the very last time when all questions are done
             {
                 RefreshScreen();
+                progress.Text = $"Question: {flag + 1} / 10";
             }
             input.Clear();//to clear the text in the inputbox
             flag++;//updates the counter for the number of time the TickBox has been pressed
