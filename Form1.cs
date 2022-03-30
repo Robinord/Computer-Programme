@@ -154,19 +154,18 @@ namespace Computer_Programme
             {
                 timer1.Stop();
                 if (score == 10)
-                { 
+                {
                     MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");//opens a box to show text
-                    this.Hide();//hides the current for when the new form opens
-                    Form2 form = new Form2();
-                    form.Show();
+
                 }
                 else
-                {  
+                {
                     MessageBox.Show($"You got {score} out of 10", "Congratulations");//opens a box to show text
-                    this.Hide();//hides the current for when the new form opens
-                    Form2 form = new Form2();
-                    form.Show();
+
                 }
+                this.Hide();//hides the current for when the new form opens
+                Form2 form = new Form2();
+                form.Show();
             }
 
             if (flag < 10)//to refresh the values on screen, except the very last time when all questions are done
@@ -187,7 +186,7 @@ namespace Computer_Programme
         private void timer1_Tick(object sender, EventArgs e)
         {   
            
-            timeLeft.Text = $"Time Left: {50-timeSpent} secs";
+            timeLeft.Text = $"Time left: {50-timeSpent} secs";
             
 
             if (timeSpent >= 50)
@@ -196,18 +195,16 @@ namespace Computer_Programme
                 if (score == 10)
                 {
                     MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");//opens a box to show text
-                    this.Hide();//hides the current for when the new form opens
-                    Form2 form = new Form2();
-                    form.Show();
+
                 }
                 else
                 {
                     MessageBox.Show($"You got {score} out of 10", "Congratulations");//opens a box to show text
-                    this.Hide();//hides the current for when the new form opens
-                    Form2 form = new Form2();
-                    form.Show();
-                }
 
+                }
+                this.Hide();//hides the current for when the new form opens
+                Form2 form = new Form2();
+                form.Show();
             }
 
             timeSpent++;

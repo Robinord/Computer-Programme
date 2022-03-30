@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.input = new System.Windows.Forms.TextBox();
             this.engWord = new System.Windows.Forms.Label();
             this.question = new System.Windows.Forms.Label();
             this.tickBox = new System.Windows.Forms.Button();
             this.progress = new System.Windows.Forms.Label();
+            this.timeLeft = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // input
@@ -62,8 +65,7 @@
             this.question.Name = "question";
             this.question.Size = new System.Drawing.Size(800, 40);
             this.question.TabIndex = 9;
-            this.question.Text = "This Programme will ask you for the word of the meaning, Press the checkbox to co" +
-    "ntinue";
+            this.question.Text = "This Programme will ask you for the Maori word with the corresponding meaning, ";
             this.question.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tickBox
@@ -88,12 +90,28 @@
             this.progress.Text = "Question: 0 / 10";
             this.progress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // timeLeft
+            // 
+            this.timeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLeft.Location = new System.Drawing.Point(12, 27);
+            this.timeLeft.Name = "timeLeft";
+            this.timeLeft.Size = new System.Drawing.Size(256, 48);
+            this.timeLeft.TabIndex = 12;
+            this.timeLeft.Text = "Time left:  100 secs";
+            this.timeLeft.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
             this.ClientSize = new System.Drawing.Size(984, 461);
+            this.Controls.Add(this.timeLeft);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.tickBox);
             this.Controls.Add(this.question);
@@ -114,5 +132,7 @@
         private System.Windows.Forms.Label question;
         private System.Windows.Forms.Button tickBox;
         private System.Windows.Forms.Label progress;
+        private System.Windows.Forms.Label timeLeft;
+        private System.Windows.Forms.Timer timer1;
     }
 }

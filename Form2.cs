@@ -51,6 +51,7 @@ namespace Computer_Programme
         string answer;// the text entered in the textbox
         int score = 0;//the counter for current score
         int meaningIndex;//declared to make the index for the meaning 
+        int timeSpent = 0;
         string[] maoriWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hīkoi", "hui", "iti", "iwi", "kai",
             "karakia", "kaumatua", "kauri", "kiwi", "koha", "kōhanga reo", "mahi", "mana", "manuhiri", "Māori", "marae",
             "maunga", "moa", "moana", "motu", "nui", "pā", "Pākehā", "pounamu", "puku", "rangatira", "taihoa", "tama",
@@ -126,6 +127,7 @@ namespace Computer_Programme
             if (flag == 0)//when clicked for the first time 
             {
                 question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
+                timer1.Start();
             }
             if (flag >= 1)//so that score isn't checked the very first time the tickbox is clicked
             {
@@ -133,6 +135,7 @@ namespace Computer_Programme
             }
             if (flag == 10)//when all the questions have been asked, it shows the score
             {
+                timer1.Stop();
                 if (score == 10)
                 {
                     MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");
@@ -177,7 +180,30 @@ namespace Computer_Programme
                 Run();
             }
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
 
+            timeLeft.Text = $"Time left: {100 - timeSpent} secs";
+
+
+            if (timeSpent >= 100)
+            {
+                timer1.Stop();
+                if (score == 10)
+                {
+                    MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");
+                }
+                else
+                {
+                    MessageBox.Show($"You got {score} out of 10", "Congratulations");
+                }
+                Application.Exit();
+            }
+
+            timeSpent++;
+
+        }
+    
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();//so that the previous hidden form 1 closes along aswell
