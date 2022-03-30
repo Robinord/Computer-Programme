@@ -17,7 +17,7 @@ Run Method()
 Refresh Method()
     Meaning = Meanings[Call Unique Random Number method(max value: 49)]
 Check Score Method()
-    If Text Entered is the maori word which corresponds to the meaning:
+    If Text Entered is the maori word or the alternative maori word which corresponds to the meaning:
         Score + 1
 Unique Random Number Method()
     While(Until Returns)
@@ -77,7 +77,7 @@ namespace Computer_Programme
             "(genealogy, to recite genealogy )", "(extended family)", "(land, homeland)" };
             //made an array with the meanings of the maori words at the same index
         int[] usedNumbers = new int[10];//made an array for the used numbers so they don't get repeated
-        public void Refresh()//made to refresh the meaning displayed on screen
+        public void RefreshScreen()//made to refresh the meaning displayed on screen
         {
             meaningIndex = uniqueRnd(49);//stores a random unique index with max value 49
             engWord.Text = meaning[meaningIndex];
@@ -143,7 +143,7 @@ namespace Computer_Programme
             }
             if (flag < 10)//to refresh the value on screen, except the very last time when all questions are done
             {
-                Refresh();
+                RefreshScreen();
             }
             input.Clear();//to clear the text in the inputbox
             flag++;//updates the counter for the number of time the TickBox has been pressed

@@ -1,5 +1,5 @@
 ﻿/*
-This programme will is Multiple Choice Questions quiz
+This programme is a Multiple Choice Questions quiz
 list of MaoriWords = string[50 values]
 list of the meanings = string [50 values]
 if tickBox pressed:
@@ -70,7 +70,7 @@ namespace Computer_Programme
         int[] usedNumbers = new int[30];//made an array for the used numbers so they don't get repeated
         int[] optionIndex = new int[3];//made an array for the current indexes that the options are using
 
-        public void Refresh()//made to refresh all the values on screen
+        public void RefreshScreen()//made to refresh all the values on screen
         {
             optionIndex[0] = UniqueRnd(49);
             optionIndex[1] = UniqueRnd(49);
@@ -145,6 +145,7 @@ namespace Computer_Programme
             if (flag >= 1)//so that score isn't checked the very first time the tickbox is clicked
             {
                 CheckScore();
+ 
             }
             if (flag == 10)//when all the questions have been asked, it shows the score
             {
@@ -166,7 +167,8 @@ namespace Computer_Programme
 
             if (flag < 10)//to refresh the values on screen, except the very last time when all questions are done
             {
-                Refresh();
+                RefreshScreen();
+                progress.Text = $"{flag} / 10";
             }
 
             flag++;//updates the counter for the number of time the TickBox has been pressed
