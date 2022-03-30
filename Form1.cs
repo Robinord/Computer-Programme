@@ -175,7 +175,7 @@ namespace Computer_Programme
             option1.Checked = false;
             option2.Checked = false;
             option3.Checked = false;
-
+            optionNumber = 0;
             flag++;//updates the counter for the number of time the TickBox has been pressed
         }
     }
