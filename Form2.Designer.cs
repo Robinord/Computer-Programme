@@ -35,7 +35,7 @@
             this.tickBox = new System.Windows.Forms.Button();
             this.progress = new System.Windows.Forms.Label();
             this.timeLeft = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // input
@@ -100,10 +100,10 @@
             this.timeLeft.Text = "Time left:  100 secs";
             this.timeLeft.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // timer1
+            // timer
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Form2
             // 
@@ -133,6 +133,6 @@
         private System.Windows.Forms.Button tickBox;
         private System.Windows.Forms.Label progress;
         private System.Windows.Forms.Label timeLeft;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer;
     }
 }
