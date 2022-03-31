@@ -36,7 +36,7 @@
             this.tickBox = new System.Windows.Forms.Button();
             this.engWord = new System.Windows.Forms.Label();
             this.progress = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.timeLeft = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -105,7 +105,7 @@
             // 
             // engWord
             // 
-            this.engWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.engWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
             this.engWord.Location = new System.Drawing.Point(100, 150);
             this.engWord.Name = "engWord";
             this.engWord.Size = new System.Drawing.Size(800, 80);
@@ -122,10 +122,10 @@
             this.progress.Text = "Question: 0 / 10";
             this.progress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // timer1
+            // timer
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // timeLeft
             // 
@@ -167,7 +167,7 @@
         private System.Windows.Forms.Button tickBox;
         public System.Windows.Forms.Label engWord;
         private System.Windows.Forms.Label progress;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label timeLeft;
     }
 }

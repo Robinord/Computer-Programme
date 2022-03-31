@@ -40,9 +40,10 @@ using System.Windows.Forms;
 namespace Computer_Programme
 {
     public partial class Form1 : Form
-    { 
+    {
+        bool flag;
         int timeSpent = 0;
-        int flag = 0;//the counter for the amounts of time the tickbox has been clicked and the screen has been refreshed;
+        int counter = 0;//the counter for the amounts of time the tickbox has been clicked and the screen has been refreshed;
         Random rnd = new Random();
         int index = 0;//the counter for index for the new used number to go to
         int score = 0;//the counter for current score
@@ -84,15 +85,28 @@ namespace Computer_Programme
             option1.Text = maoriWords[optionIndex[0]];
             option2.Text = maoriWords[optionIndex[1]];
             option3.Text = maoriWords[optionIndex[2]];
+            engWord.ForeColor = Color.Black;
+            question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
         }
         public void CheckScore()
         {
+            question.Text = "Press checkbox to continue";
             if (optionNumber-1 == meaningIndex && optionNumber != 0)//just to confirm that a score isn't added if no options are selected
             { 
-                score++; 
+                score++;
+                engWord.ForeColor = Color.Green;
+                engWord.Text = "Correct Answer!";
             }
             //if the option number chosen is the same as the option's meaning that was displayed then add one to the score
-        }
+            else
+            {
+                engWord.ForeColor = Color.Red;
+                engWord.Text = $"Incorrect answer! Correct answer was: {maoriWords[optionIndex[meaningIndex]]}";
+            }
+            timer.Stop();
+
+        }   
+
 
         public int UniqueRnd(int maxValue)//method to choose a different random number each time it is run
         {
@@ -141,18 +155,20 @@ namespace Computer_Programme
 
         private void tickBox_Click(object sender, EventArgs e)//When tick box is clicked
         {   
-            if (flag == 0)//when clicked for the first time 
-            {
+            
                 question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
-                timer1.Start();
-            }
-            if (flag >= 1)//so that score isn't checked the very first time the tickbox is clicked
-            {
+                timer.Start();
+
+            if (counter >= 1 && !flag)//so that score isn't checked the very first time the tickbox is clicked
+            {   
                 CheckScore();
+                flag = true;
+                return;
             }
-            if (flag == 10)//when all the questions have been asked, it shows the score
+            
+            if (counter == 10)//when all the questions have been asked, it shows the score
             {
-                timer1.Stop();
+                timer.Stop();
                 if (score == 10)
                 {
                     MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");//opens a box to show text
@@ -168,22 +184,25 @@ namespace Computer_Programme
                 form.Show();
             }
 
-            if (flag < 10)//to refresh the values on screen, except the very last time when all questions are done
+            if (counter < 10)//to refresh the values on screen, except the very last time when all questions are done
             {
                 RefreshScreen();
-                progress.Text = $"Question: {flag + 1} / 10";
+                progress.Text = $"Question: {counter + 1} / 10";
+                option1.Checked = false;
+                option2.Checked = false;
+                option3.Checked = false;
+                //for all the options checked to reset each time
+                optionNumber = 0;
+                flag = false;
             }
+           
+            counter++;//updates the counter for the number of time the TickBox has been pressed
+            
 
-            option1.Checked = false;
-            option2.Checked = false;
-            option3.Checked = false;
-            //for all the options checked to reset each time
-            optionNumber = 0;
-
-            flag++;//updates the counter for the number of time the TickBox has been pressed
+            
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {   
            
             timeLeft.Text = $"Time left: {50-timeSpent} secs";
@@ -191,7 +210,7 @@ namespace Computer_Programme
 
             if (timeSpent >= 50)
             {
-                timer1.Stop();
+                timer.Stop();
                 if (score == 10)
                 {
                     MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");//opens a box to show text
@@ -210,5 +229,6 @@ namespace Computer_Programme
             timeSpent++;
 
         }
+
     }
 }
