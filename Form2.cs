@@ -200,10 +200,10 @@ namespace Computer_Programme
         private void timer_Tick(object sender, EventArgs e)
         {
 
-            timeLeft.Text = $"Time left: {100 - timeSpent} secs";
+            timeLeft.Text = $"Time left: {80 - timeSpent} secs";
 
 
-            if (timeSpent >= 100)
+            if (timeSpent >= 80)
             {
                 Exit();
             }

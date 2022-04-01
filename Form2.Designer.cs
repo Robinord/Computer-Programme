@@ -98,7 +98,7 @@
             this.timeLeft.Name = "timeLeft";
             this.timeLeft.Size = new System.Drawing.Size(256, 48);
             this.timeLeft.TabIndex = 12;
-            this.timeLeft.Text = "Time left:  100 secs";
+            this.timeLeft.Text = "Time left:  80 secs";
             this.timeLeft.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // timer
