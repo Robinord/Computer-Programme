@@ -65,7 +65,8 @@
             this.question.Name = "question";
             this.question.Size = new System.Drawing.Size(800, 40);
             this.question.TabIndex = 9;
-            this.question.Text = "This Programme will ask you for the Maori word with the corresponding meaning, ";
+            this.question.Text = "Intro: This Programme will ask you for the Maori word with the corresponding mean" +
+    "ing,";
             this.question.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tickBox

@@ -48,8 +48,8 @@
             this.question.Name = "question";
             this.question.Size = new System.Drawing.Size(800, 40);
             this.question.TabIndex = 2;
-            this.question.Text = "This Programme will ask you Multiple choice questions, Press the checkbox to cont" +
-    "inue";
+            this.question.Text = "Intro: This Programme will ask you Multiple choice questions, Press the checkbox " +
+    "to continue";
             this.question.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // option1

@@ -54,23 +54,23 @@ namespace Computer_Programme
             "maunga", "moa", "moana", "motu", "nui", "pā", "Pākehā", "pounamu", "puku", "rangatira", "taihoa", "tama", 
             "tamāhine", "tamariki", "tāne", "tangi", "taonga", "tapu", "te reo Māori", "tipuna", "tuatara ", "wahine",
             "wai", "waiata", "waka", "whaikōrero", "whakapapa", "whānau", "whenua" };
-            //made an array for all the maori words
-        string[] meaning = { "(New Zealand, long white cloud)", "(love)", "(river)", "(generic term for Māori dance. )",
-            "(traditional feast prepared in earth oven)", " (clan, sub-tribe; to be born )", "(walk)", " (gathering, meeting)", 
-            " (small)", " (tribe)", "(food)", "(prayer)", "(elder)", "(large native conifer)", "(native flightless bird)", 
-            "(gift, present (usually given by guest to hosts))", 
-            " (language nest, Maori immersion pre-school (0 to 4 years))", "(work or activity)", "(prestige, reputation)", 
+        //made an array for all the maori words
+        string[] meaning = { "(New Zealand, long white cloud)", "(love)", "(river)", "(generic term for Māori dance.)",
+            "(traditional feast prepared in earth oven)", "(clan, sub-tribe; to be born)", "(walk)", "(gathering, meeting)",
+            "(small)", "(tribe)", "(food)", "(prayer)", "(elder)", "(large native conifer)", "(native flightless bird)",
+            "(gift, present (usually given by guest to hosts))",
+            "(language nest, Maori immersion pre-school (0 to 4 years))", "(work or activity)", "(prestige, reputation)",
             "(guests, visitors)", "(indigenous inhabitants of New Zealand,\n the language of the indigenous inhabitants of New Zealand)",
-            "(the area for formal discourse in front of a meeting house)", " (mountain)",
-            "(extinct large flightless bird)", "(sea)", "(island)", "(large, many, big)", " (hill fort)", 
-            "(New Zealander of non-Māori descent, usually European)", " (greenstone, jade)", " (belly, stomach)", 
-            "(person of chiefly rank, boss )", "(to delay, to wait, to hold off to \n allow maturation of plans etc. )",
-            "(son, young man, youth)", " (daughter)", " (children)", " (man, husband, men, husbands)", "(funeral)", 
-            "(treasured possessions or cultural items, anything precious)", "(sacred, not to be touched, to be avoided because sacred)", 
-            " (the Māori Language)", "(ancestor )", " (reptiles endemic to New Zealand, the order Rhynchocephalia)",
-            "(woman, wife)", " (water)", "(song or chant)", "(canoe, canoe group)", " (the art and practise of speech-making )", 
-            "(genealogy, to recite genealogy )", "(extended family)", "(land, homeland)" };
-            //made an array with the meanings of the maori words at the same index
+            "(the area for formal discourse in front of a meeting house)", "(mountain)",
+            "(extinct large flightless bird)", "(sea)", "(island)", "(large, many, big)", "(hill fort)",
+            "(New Zealander of non-Māori descent, usually European)", "(greenstone, jade)", "(belly, stomach)",
+            "(person of chiefly rank, boss)", "(to delay, to wait, to hold off to \n allow maturation of plans etc.)",
+            "(son, young man, youth)", " (daughter)", " (children)", " (man, husband, men, husbands)", "(funeral)",
+            "(treasured possessions or cultural items, anything precious)", "(sacred, not to be touched, to be avoided because sacred)",
+            "(the language Māori people speak)", "(ancestor)", " (reptiles endemic to New Zealand, the order Rhynchocephalia)",
+            "(woman, wife)", "(water)", "(song or chant)", "(canoe, canoe group)", " (the art and practise of speech-making)",
+            "(genealogy, to recite genealogy)", "(extended family)", "(land, homeland)" };
+        //made an array with the meanings of the maori words at the same index
         int[] usedNumbers = new int[30];//made an array for the used numbers so they don't get repeated
         int[] optionIndex = new int[3];//made an array for the current indexes that the options are using
 
@@ -107,6 +107,23 @@ namespace Computer_Programme
 
         }   
 
+        public void Exit()
+        {
+            timer.Stop();
+            if (score == 10)
+            {
+                MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");//opens a box to show text
+
+            }
+            else
+            {
+                MessageBox.Show($"You got {score} out of 10", "Congratulations");//opens a box to show text
+
+            }
+            this.Hide();//hides the current for when the new form opens
+            Form2 form = new Form2();
+            form.Show();
+        }
 
         public int UniqueRnd(int maxValue)//method to choose a different random number each time it is run
         {
@@ -132,6 +149,7 @@ namespace Computer_Programme
             }     
             
         }
+
 
         public Form1()
         {
@@ -168,20 +186,7 @@ namespace Computer_Programme
             
             if (counter == 10)//when all the questions have been asked, it shows the score
             {
-                timer.Stop();
-                if (score == 10)
-                {
-                    MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");//opens a box to show text
-
-                }
-                else
-                {
-                    MessageBox.Show($"You got {score} out of 10", "Congratulations");//opens a box to show text
-
-                }
-                this.Hide();//hides the current for when the new form opens
-                Form2 form = new Form2();
-                form.Show();
+                Exit();
             }
 
             if (counter < 10)//to refresh the values on screen, except the very last time when all questions are done
@@ -210,20 +215,7 @@ namespace Computer_Programme
 
             if (timeSpent >= 50)
             {
-                timer.Stop();
-                if (score == 10)
-                {
-                    MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");//opens a box to show text
-
-                }
-                else
-                {
-                    MessageBox.Show($"You got {score} out of 10", "Congratulations");//opens a box to show text
-
-                }
-                this.Hide();//hides the current for when the new form opens
-                Form2 form = new Form2();
-                form.Show();
+                Exit();
             }
 
             timeSpent++;
