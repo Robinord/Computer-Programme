@@ -151,25 +151,14 @@ namespace Computer_Programme
         }
 
 
-        public Form1()
-        {
-            InitializeComponent();//initializing this form
-        }
+        public Form1() =>  InitializeComponent();//initializing this form
 
-        private void option1_CheckedChanged(object sender, EventArgs e)
-        {
-            optionNumber = 1;//when option 1 is pressed
-        }
+        private void option1_CheckedChanged(object sender, EventArgs e) => optionNumber = 1;//when option 1 is pressed
 
-        private void option2_CheckedChanged(object sender, EventArgs e)
-        {
-            optionNumber = 2;//when option  2 is pressed
-        }
 
-        private void option3_CheckedChanged(object sender, EventArgs e)
-        {
-            optionNumber = 3;//when option 3 is pressed
-        }
+        private void option2_CheckedChanged(object sender, EventArgs e) => optionNumber = 2;//when option  2 is pressed
+
+        private void option3_CheckedChanged(object sender, EventArgs e) => optionNumber = 3;//when option 3 is pressed
 
         private void tickBox_Click(object sender, EventArgs e)//When tick box is clicked
         {   
@@ -202,9 +191,7 @@ namespace Computer_Programme
             }
            
             counter++;//updates the counter for the number of time the TickBox has been pressed
-            
-
-            
+ 
         }
 
         private void timer_Tick(object sender, EventArgs e)

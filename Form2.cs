@@ -52,7 +52,7 @@ namespace Computer_Programme
         string answer;// the text entered in the textbox
         int score = 0;//the counter for current score
         int meaningIndex;//declared to make the index for the meaning 
-        int timeSpent = 0;
+        int secsLeft = 80;
         string[] maoriWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hīkoi", "hui", "iti", "iwi", "kai",
             "karakia", "kaumatua", "kauri", "kiwi", "koha", "kōhanga reo", "mahi", "mana", "manuhiri", "Māori", "marae",
             "maunga", "moa", "moana", "motu", "nui", "pā", "Pākehā", "pounamu", "puku", "rangatira", "taihoa", "tama",
@@ -173,21 +173,13 @@ namespace Computer_Programme
             counter++;//updates the counter for the number of time the TickBox has been pressed
         }
 
-        public Form2()
-        {
-            InitializeComponent();//initializing this form
-        }
+        public Form2() => InitializeComponent();//initializing this form
 
+        private void input_TextChanged(object sender, EventArgs e) => answer = input.Text;//to keep account of the text entered
 
-        private void input_TextChanged(object sender, EventArgs e)//to keep account of the text entered
-        {
-            answer = input.Text;
-        }
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e) => Run();//so that the previous hidden form 1 closes along aswell
 
-        private void tickBox_Click(object sender, EventArgs e)
-        {
-            Run();
-        }
+        private void tickBox_Click(object sender, EventArgs e) => Run();
 
         private void input_KeyDown(object sender, KeyEventArgs e)
         {
@@ -198,24 +190,14 @@ namespace Computer_Programme
             }
         }
         private void timer_Tick(object sender, EventArgs e)
-        {
+        { 
+            timeLeft.Text = $"Time left: {timeLeft} secs";
 
-            timeLeft.Text = $"Time left: {80 - timeSpent} secs";
-
-
-            if (timeSpent >= 80)
+            if (secsLeft <= 0)
             {
                 Exit();
             }
-
-            timeSpent++;
-
+            secsLeft--;
         }
-    
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();//so that the previous hidden form 1 closes along aswell
-        }
-
     }
 }
