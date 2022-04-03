@@ -3,6 +3,9 @@ This programme will ask the user for the maori word corresponding to the meaning
 list of Maori Words = string[50 values]
 list of alternate Maori words = string[50 values]
 list of the meanings = string [50 values]
+Timer Event()
+    If 80 seconds passed;
+        Exit Method()
 if close button pressed:
     Exit the whole programme
 if tickBox pressed:
@@ -11,12 +14,14 @@ if Enter key pressed:
     Suppress system sound 
     Call Run Method()
 Run Method()
-    Call refresh screen method()
-    Call score method()
+    Call Refresh screen method()
+    Call Score method()
     if used 10 times:
-        Show Score
-        Exit Application
+        Call Exit Method()
     Update the progress Label
+Exit Method()
+    Show score
+    Exit Application
 Refresh screen Method()
     Meaning = Meanings[Call Unique Random Number method(max value: 49)]
 Check Score Method()
@@ -177,7 +182,7 @@ namespace Computer_Programme
 
         private void input_TextChanged(object sender, EventArgs e) => answer = input.Text;//to keep account of the text entered
 
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e) => Run();//so that the previous hidden form 1 closes along aswell
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();//so that the previous hidden form 1 closes along aswell
 
         private void tickBox_Click(object sender, EventArgs e) => Run();
 

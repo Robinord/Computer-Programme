@@ -2,14 +2,16 @@
 This programme is a Multiple Choice Questions quiz
 list of MaoriWords = string[50 values]
 list of the meanings = string [50 values]
+Timer Event()
+    If 50 seconds passed;
+        Exit Method()
 if tickBox pressed:
     Call refresh method()
     Call score method()
     Uncheck all the boxes
     if pressed 10 times:
-        Show Score
-        Open Form2
-    Show the prgress
+        Exit Method()
+    Update Progress Label
 Refresh Screen Method()
     Option 1 = MaoriWords[Call Unique Random Number method(max value:49)]
     Option 2 = MaoriWords[Call Unique Random Number method(max value:49)]
@@ -26,6 +28,9 @@ Unique Random Number Method()
         else:
             Save Random Number as Used Numbers
             Return Random Number
+Exit Method()
+    Show score 
+    Open Form2
  */
 using System;
 using System.Collections.Generic;
