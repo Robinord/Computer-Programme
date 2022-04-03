@@ -42,7 +42,7 @@ namespace Computer_Programme
     public partial class Form1 : Form
     {
         bool flag;
-        int timeSpent = 0;
+        int secsLeft = 50;
         int counter = 0;//the counter for the amounts of time the tickbox has been clicked and the screen has been refreshed;
         Random rnd = new Random();
         int index = 0;//the counter for index for the new used number to go to
@@ -197,15 +197,15 @@ namespace Computer_Programme
         private void timer_Tick(object sender, EventArgs e)
         {   
            
-            timeLeft.Text = $"Time left: {50-timeSpent} secs";
+            timeLeft.Text = $"Time left: {secsLeft} secs";
             
 
-            if (timeSpent >= 50)
+            if (secsLeft <= 0)
             {
                 Exit();
             }
 
-            timeSpent++;
+            secsLeft--;
 
         }
 

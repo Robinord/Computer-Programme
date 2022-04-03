@@ -191,7 +191,8 @@ namespace Computer_Programme
         }
         private void timer_Tick(object sender, EventArgs e)
         { 
-            timeLeft.Text = $"Time left: {timeLeft} secs";
+
+            timeLeft.Text = $"Time left: {secsLeft} secs";
 
             if (secsLeft <= 0)
             {
