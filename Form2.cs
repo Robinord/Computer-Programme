@@ -50,7 +50,7 @@ namespace Computer_Programme
 {
     public partial class Form2 : Form
     {
-        bool flag;
+        bool flag;//to keep in count if values are to be refreshed just yet or not
         int counter = 0;//the counter for the amounts of time the tickbox has been clicked and the screen has been refreshed;
         Random rnd = new Random();
         int index = 0;//the counter for index for the new used number to go to
@@ -89,7 +89,7 @@ namespace Computer_Programme
         int[] usedNumbers = new int[10];//made an array for the used numbers so they don't get repeated
         public void RefreshScreen()//made to refresh the meaning displayed on screen
         {
-            meaningIndex = uniqueRnd(49);//stores a random unique index with max value 49
+            meaningIndex = uniqueRnd(49);//made the value a variable because it is used again in Check Score method
             engWord.Text = meaning[meaningIndex];
             engWord.ForeColor = Color.Black;
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
@@ -99,21 +99,21 @@ namespace Computer_Programme
             question.Text = "Press checkbox or enter key to continue";
             if (answer == null)//to noot run into error if user doesn't enter anything
             {
-                answer = " ";
+                answer = "  ";
             }
             if (answer.ToLower() == (maoriWords[meaningIndex]).ToLower() || answer.ToLower() == (correctionWords[meaningIndex]).ToLower())//to check if the answer entered is right
             {
                 score++;
                 engWord.ForeColor = Color.Green;
-                engWord.Text = "Correct Answer!";
+                engWord.Text = "Correct Answer!";//to let the user know if they got the answer correct
             }
             //if the option number chosen is the same as the option's meaning that was displayed then add one to the score
             else
             {
                 engWord.ForeColor = Color.Red;
                 engWord.Text = $"Incorrect answer! Correct answer was: {maoriWords[meaningIndex]}";
-            }
-            timer.Stop();
+            }   // just to let the user know that they got it uncorrect and what the real answer is
+            timer.Stop();//to stop the timer while the user reads if they got the answer right or not
 
         }
 
@@ -143,35 +143,35 @@ namespace Computer_Programme
         public void Exit()
         {
             timer.Stop();
-            if (score == 10)
+            if (score == 10)//opens a box to show text
             {
                 MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");
-                Application.Exit();
             }
             else
             {
                 MessageBox.Show($"You got {score} out of 10", "Congratulations");
-                Application.Exit();
             }
+            Application.Exit();//Exits the whole programme including the previous form
         }
         public void Run()
         {
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
             timer.Start();
-            if (counter >= 1 && !flag)//so that score isn't checked the very first time the tickbox is clicked
+            if (counter >= 1 && !flag)
+            //so that score isn't checked the very first time the tickbox or enter is used and so that it doesn't check score when trying to skip the correct or incorrect message.
             {
                 CheckScore();
-                flag = true;
-                return;
+                flag = true;//if the tickbox is being pressed to check the answer
+                return;//to not refresh the values until the user has read if they got the answer correct or not
             }
-            if (counter == 10)//when all the questions have been asked, it shows the score
+            if (counter == 10)//when all the questions have been asked, it shows the score and exits application
             {
                 Exit();
             }
-            if (counter < 10)//to refresh the value on screen, except the very last time when all questions are done
+            if (counter < 10)//to refresh the value on screen and update the progress, except the very last time when all questions are done
             {
                 RefreshScreen();
-                progress.Text = $"Question: {counter + 1} / 10";
+                progress.Text = $"Question: {counter + 1} / 10";//shows the progress
                 flag = false;
             }
             input.Clear();//to clear the text in the inputbox
@@ -201,7 +201,7 @@ namespace Computer_Programme
 
             if (secsLeft <= 0)
             {
-                Exit();
+                Exit();//exits the programme when the timer runs out
             }
             secsLeft--;
         }
