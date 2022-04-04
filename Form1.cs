@@ -4,13 +4,13 @@ list of MaoriWords = string[50 values]
 list of the meanings = string [50 values]
 Timer Event()
     If 50 seconds passed;
-        Exit Method()
+        Call Exit Method()
 if tickBox pressed:
     Call refresh method()
     Call score method()
     Uncheck all the boxes
     if pressed 10 times:
-        Exit Method()
+        Call Exit Method()
     Update Progress Label
 Refresh Screen Method()
     Option 1 = MaoriWords[Call Unique Random Number method(max value:49)]
@@ -46,9 +46,9 @@ namespace Computer_Programme
 {
     public partial class Form1 : Form
     {
-        bool flag;
-        int secsLeft = 50;
-        int counter = 0;//the counter for the amounts of time the tickbox has been clicked and the screen has been refreshed;
+        bool flag;//to keep in count if values are to be refreshed just yet or not
+        int secsLeft = 50;//time left to complete the programme
+        int counter = 0;//the counter for the amounts of questions completed and the screen has refreshed;
         Random rnd = new Random();
         int index = 0;//the counter for index for the new used number to go to
         int score = 0;//the counter for current score
@@ -93,6 +93,7 @@ namespace Computer_Programme
             engWord.ForeColor = Color.Black;
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
         }
+
         public void CheckScore()
         {
             question.Text = "Press checkbox to continue";
@@ -100,16 +101,15 @@ namespace Computer_Programme
             { 
                 score++;
                 engWord.ForeColor = Color.Green;
-                engWord.Text = "Correct Answer!";
+                engWord.Text = "Correct Answer!";//to let the user know if they got the answer correct
             }
             //if the option number chosen is the same as the option's meaning that was displayed then add one to the score
             else
             {
                 engWord.ForeColor = Color.Red;
                 engWord.Text = $"Incorrect answer! Correct answer was: {maoriWords[optionIndex[meaningIndex]]}";
-            }
-            timer.Stop();
-
+            }   // just to let the user know that they got it uncorrect and what the real answer is
+            timer.Stop();//to stop the timer while the user reads if they got the answer right or not
         }   
 
         public void Exit()
@@ -118,21 +118,18 @@ namespace Computer_Programme
             if (score == 10)
             {
                 MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");//opens a box to show text
-
             }
             else
             {
                 MessageBox.Show($"You got {score} out of 10", "Congratulations");//opens a box to show text
-
             }
             this.Hide();//hides the current for when the new form opens
             Form2 form = new Form2();
-            form.Show();
+            form.Show();//opens new form
         }
 
         public int UniqueRnd(int maxValue)//method to choose a different random number each time it is run
         {
-
             while (true)//while method keeps on going until a number is returned
             {
                 bool unique = true;//assumes that the number is unique at first until proved otherwise
@@ -152,33 +149,30 @@ namespace Computer_Programme
                     return rndNumber;
                 }
             }     
-            
         }
-
 
         public Form1() =>  InitializeComponent();//initializing this form
 
         private void option1_CheckedChanged(object sender, EventArgs e) => optionNumber = 1;//when option 1 is pressed
-
 
         private void option2_CheckedChanged(object sender, EventArgs e) => optionNumber = 2;//when option  2 is pressed
 
         private void option3_CheckedChanged(object sender, EventArgs e) => optionNumber = 3;//when option 3 is pressed
 
         private void tickBox_Click(object sender, EventArgs e)//When tick box is clicked
-        {   
-            
-                question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
-                timer.Start();
+        {    
+            question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
+            timer.Start();//to start the time when tick box is pressed
 
-            if (counter >= 1 && !flag)//so that score isn't checked the very first time the tickbox is clicked
-            {   
+            if (counter >= 1 && !flag)
+            //so that score isn't checked the very first time the tickbox is clicked and so that it doesn't check score when trying to skip the correct or incorrect message.
+            {
                 CheckScore();
-                flag = true;
-                return;
+                flag = true;//if the tickbox is being pressed to check the answer
+                return;//to not refresh the values until the user has read if they got the answer correct or not
             }
             
-            if (counter == 10)//when all the questions have been asked, it shows the score
+            if (counter == 10)//when all the questions have been asked, it Exits
             {
                 Exit();
             }
@@ -199,20 +193,16 @@ namespace Computer_Programme
  
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e)//ticks at an interval of 1 second
         {   
-           
             timeLeft.Text = $"Time left: {secsLeft} secs";
-            
-
+           
             if (secsLeft <= 0)
             {
-                Exit();
+                Exit();//if they run out of time the programme exits automatically
             }
 
             secsLeft--;
-
         }
-
     }
 }
