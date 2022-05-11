@@ -118,6 +118,7 @@
             this.Controls.Add(this.question);
             this.Controls.Add(this.engWord);
             this.Controls.Add(this.input);
+            this.MaximizeBox = false;
             this.Name = "Form2";
             this.Text = "Maori Quiz";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);

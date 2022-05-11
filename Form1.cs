@@ -46,50 +46,19 @@ namespace Computer_Programme
 {
     public partial class Form1 : Form
     {
-        bool flag;//to keep in count if values are to be refreshed just yet or not
-        int secsLeft = 50;//time left to complete the programme
-        int counter = 0;//the counter for the amounts of questions completed and the screen has refreshed;
+        Frm frm1 = new Frm(50, 0, 0, 0, 0, new int[30], new int[3]);
         Random rnd = new Random();
-        int index = 0;//the counter for index for the new used number to go to
-        int score = 0;//the counter for current score
-        int optionNumber = 0;//the variable for which option is currently pressed
-        int meaningIndex;//declared to make the index for the meaning 
-        string[] maoriWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hīkoi", "hui", "iti", "iwi", "kai",
-            "karakia", "kaumatua", "kauri", "kiwi", "koha", "kōhanga reo", "mahi", "mana", "manuhiri", "Māori", "marae",
-            "maunga", "moa", "moana", "motu", "nui", "pā", "Pākehā", "pounamu", "puku", "rangatira", "taihoa", "tama", 
-            "tamāhine", "tamariki", "tāne", "tangi", "taonga", "tapu", "te reo Māori", "tipuna", "tuatara ", "wahine",
-            "wai", "waiata", "waka", "whaikōrero", "whakapapa", "whānau", "whenua" };
-        //made an array for all the maori words
-        string[] meaning = { "(New Zealand, long white cloud)", "(love)", "(river)", "(generic term for Māori dance.)",
-            "(traditional feast prepared in earth oven)", "(clan, sub-tribe; to be born)", "(walk)", "(gathering, meeting)",
-            "(small)", "(tribe)", "(food)", "(prayer)", "(elder)", "(large native conifer)", "(native flightless bird)",
-            "(gift, present (usually given by guest to hosts))",
-            "(language nest, Maori immersion pre-school (0 to 4 years))", "(work or activity)", "(prestige, reputation)",
-            "(guests, visitors)", "(indigenous inhabitants of New Zealand,\n the language of the indigenous inhabitants of New Zealand)",
-            "(the area for formal discourse in front of a meeting house)", "(mountain)",
-            "(extinct large flightless bird)", "(sea)", "(island)", "(large, many, big)", "(hill fort)",
-            "(New Zealander of non-Māori descent, usually European)", "(greenstone, jade)", "(belly, stomach)",
-            "(person of chiefly rank, boss)", "(to delay, to wait, to hold off to \n allow maturation of plans etc.)",
-            "(son, young man, youth)", " (daughter)", " (children)", " (man, husband, men, husbands)", "(funeral)",
-            "(treasured possessions or cultural items, anything precious)", "(sacred, not to be touched, to be avoided because sacred)",
-            "(the language Māori people speak)", "(ancestor)", " (reptiles endemic to New Zealand, the order Rhynchocephalia)",
-            "(woman, wife)", "(water)", "(song or chant)", "(canoe, canoe group)", " (the art and practise of speech-making)",
-            "(genealogy, to recite genealogy)", "(extended family)", "(land, homeland)" };
-        //made an array with the meanings of the maori words at the same index
-        int[] usedNumbers = new int[30];//made an array for the used numbers so they don't get repeated
-        int[] optionIndex = new int[3];//made an array for the current indexes that the options are using
-
         public void RefreshScreen()//made to refresh all the values on screen
         {
-            optionIndex[0] = UniqueRnd(49);
-            optionIndex[1] = UniqueRnd(49);
-            optionIndex[2] = UniqueRnd(49);
+            frm1.OptionIndex[0] = UniqueRnd(49);
+            frm1.OptionIndex[1] = UniqueRnd(49);
+            frm1.OptionIndex[2] = UniqueRnd(49);
             //stores a random index for each option in the optionIndex array
-            meaningIndex = rnd.Next(3);
-            engWord.Text = meaning[optionIndex[meaningIndex]];//chooses a random index from the any of the index the options are using
-            option1.Text = maoriWords[optionIndex[0]];
-            option2.Text = maoriWords[optionIndex[1]];
-            option3.Text = maoriWords[optionIndex[2]];
+            frm1.MeaningIndex = rnd.Next(3);
+            engWord.Text = Frm.Meaning[frm1.OptionIndex[frm1.MeaningIndex]];//chooses a random index from the any of the index the options are using
+            option1.Text = Frm.MaoriWords[frm1.OptionIndex[0]];
+            option2.Text = Frm.MaoriWords[frm1.OptionIndex[1]];
+            option3.Text = Frm.MaoriWords[frm1.OptionIndex[2]];
             engWord.ForeColor = Color.Black;
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
         }
@@ -97,9 +66,9 @@ namespace Computer_Programme
         public void CheckScore()
         {
             question.Text = "Press checkbox to continue";
-            if (optionNumber-1 == meaningIndex && optionNumber != 0)//just to confirm that a score isn't added if no options are selected
+            if (frm1.OptionNumber-1 == frm1.MeaningIndex && frm1.OptionNumber != 0)//just to confirm that a score isn't added if no options are selected
             { 
-                score++;
+                frm1.Score++;
                 engWord.ForeColor = Color.Green;
                 engWord.Text = "Correct Answer!";//to let the user know if they got the answer correct
             }
@@ -107,7 +76,7 @@ namespace Computer_Programme
             else
             {
                 engWord.ForeColor = Color.Red;
-                engWord.Text = $"Incorrect answer! Correct answer was: {maoriWords[optionIndex[meaningIndex]]}";
+                engWord.Text = $"Incorrect answer! Correct answer was: {Frm.MaoriWords[frm1.OptionIndex[frm1.MeaningIndex]]}";
             }   // just to let the user know that they got it uncorrect and what the real answer is
             timer.Stop();//to stop the timer while the user reads if they got the answer right or not
         }   
@@ -115,13 +84,13 @@ namespace Computer_Programme
         public void Exit()
         {
             timer.Stop();
-            if (score == 10)
+            if (frm1.Score == 10)
             {
                 MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");//opens a box to show text
             }
             else
             {
-                MessageBox.Show($"You got {score} out of 10", "Congratulations");//opens a box to show text
+                MessageBox.Show($"You got {frm1.Score} out of 10", "Congratulations");//opens a box to show text
             }
             this.Hide();//hides the current for when the new form opens
             Form2 form = new Form2();
@@ -132,77 +101,77 @@ namespace Computer_Programme
         {
             while (true)//while method keeps on going until a number is returned
             {
-                bool unique = true;//assumes that the number is unique at first until proved otherwise
-                int rndNumber = rnd.Next(maxValue + 1);//chooses a random number below 50
+                frm1.Unique = true;//assumes that the number is unique at first until proved otherwise
+                frm1.RndNumber = rnd.Next(maxValue + 1);//chooses a random number below 50
 
-                foreach (int usedNumber in usedNumbers)//goes through each number in the usedNumbers array
+                foreach (int usedNumber in frm1.UsedNumbers)//goes through each number in the usedNumbers array
                 {  
-                    if (rndNumber == usedNumber)
+                    if (frm1.RndNumber == usedNumber)
                     { 
-                        unique = false;//if a number in the array is the same as this number then unique is false and a value isn't returned and the process repeats
+                        frm1.Unique = false;//if a number in the array is the same as this number then unique is false and a value isn't returned and the process repeats
                     }
                 }
-                if (unique == true)
+                if (frm1.Unique == true)
                 {
-                    usedNumbers[index] = rndNumber;//puts the new unique random number in the array of used numbers
-                    index++;//changes the current index of the used number to be placed in
-                    return rndNumber;
+                    frm1.UsedNumbers[frm1.Index] = frm1.RndNumber;//puts the new unique random number in the array of used numbers
+                    frm1.Index++;//changes the current index of the used number to be placed in
+                    return frm1.RndNumber;
                 }
             }     
         }
 
         public Form1() =>  InitializeComponent();//initializing this form
 
-        private void option1_CheckedChanged(object sender, EventArgs e) => optionNumber = 1;//when option 1 is pressed
+        private void option1_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 1;//when option 1 is pressed
 
-        private void option2_CheckedChanged(object sender, EventArgs e) => optionNumber = 2;//when option  2 is pressed
+        private void option2_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 2;//when option  2 is pressed
 
-        private void option3_CheckedChanged(object sender, EventArgs e) => optionNumber = 3;//when option 3 is pressed
+        private void option3_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 3;//when option 3 is pressed
 
         private void tickBox_Click(object sender, EventArgs e)//When tick box is clicked
         {    
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
             timer.Start();//to start the time when tick box is pressed
 
-            if (counter >= 1 && !flag)
+            if (frm1.Counter >= 1 && !frm1.Flag)
             //so that score isn't checked the very first time the tickbox is clicked and so that it doesn't check score when trying to skip the correct or incorrect message.
             {
                 CheckScore();
-                flag = true;//if the tickbox is being pressed to check the answer
+                frm1.Flag = true;//if the tickbox is being pressed to check the answer
                 return;//to not refresh the values until the user has read if they got the answer correct or not
             }
             
-            if (counter == 10)//when all the questions have been asked, it Exits
+            if (frm1.Counter == 10)//when all the questions have been asked, it Exits
             {
                 Exit();
             }
 
-            if (counter < 10)//to refresh the values on screen, except the very last time when all questions are done
+            if (frm1.Counter < 10)//to refresh the values on screen, except the very last time when all questions are done
             {
                 RefreshScreen();
-                progress.Text = $"Question: {counter + 1} / 10";
+                progress.Text = $"Question: {frm1.Counter + 1} / 10";
                 option1.Checked = false;
                 option2.Checked = false;
                 option3.Checked = false;
                 //for all the options checked to reset each time
-                optionNumber = 0;
-                flag = false;
+                frm1.OptionNumber = 0;
+                frm1.Flag = false;
             }
            
-            counter++;//updates the counter for the number of time the TickBox has been pressed
+            frm1.Counter++;//updates the counter for the number of time the TickBox has been pressed
  
         }
 
         private void timer_Tick(object sender, EventArgs e)//ticks at an interval of 1 second
         {   
-            timeLeft.Text = $"Time left: {secsLeft} secs";
+            timeLeft.Text = $"Time left: {frm1.SecsLeft} secs";
            
-            if (secsLeft <= 0)
+            if (frm1.SecsLeft <= 0)
             {
                 Exit();//if they run out of time the programme exits automatically
             }
 
-            secsLeft--;
+            frm1.SecsLeft--;
         }
     }
 }

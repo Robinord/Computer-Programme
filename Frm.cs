@@ -8,9 +8,9 @@ namespace Computer_Programme
 {
     public class Frm
     {
-        public static bool Flag;
-        public int SecsLeft, Counter, Index, Score, OptionNumber;
-        public static int MeaningIndex;
+        public bool Unique, Flag;
+        public int RndNumber, SecsLeft, Counter, Index, Score, OptionNumber;
+        public int MeaningIndex;
         public static string[] MaoriWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hīkoi", "hui", "iti", "iwi", "kai",
             "karakia", "kaumatua", "kauri", "kiwi", "koha", "kōhanga reo", "mahi", "mana", "manuhiri", "Māori", "marae",
             "maunga", "moa", "moana", "motu", "nui", "pā", "Pākehā", "pounamu", "puku", "rangatira", "taihoa", "tama",
