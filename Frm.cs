@@ -44,7 +44,29 @@ namespace Computer_Programme
             this.OptionIndex = optionIndex;
         }
 
+        public int UniqueRnd(int maxValue)//method to choose a different random number each time it is run
+        {
+            Random rnd = new Random();
+            while (true)//while method keeps on going until a number is returned
+            {
+                Unique = true;//assumes that the number is unique at first until proved otherwise
+                RndNumber = rnd.Next(maxValue + 1);//chooses a random number below 50
 
+                foreach (int usedNumber in UsedNumbers)//goes through each number in the usedNumbers array
+                {
+                    if (RndNumber == usedNumber)
+                    {
+                        Unique = false;//if a number in the array is the same as this number then unique is false and a value isn't returned and the process repeats
+                    }
+                }
+                if (Unique == true)
+                {
+                    UsedNumbers[Index] = RndNumber;//puts the new unique random number in the array of used numbers
+                    Index++;//changes the current index of the used number to be placed in
+                    return RndNumber;
+                }
+            }
+        }
 
 
     }

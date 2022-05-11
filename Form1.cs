@@ -50,9 +50,9 @@ namespace Computer_Programme
         Random rnd = new Random();
         public void RefreshScreen()//made to refresh all the values on screen
         {
-            frm1.OptionIndex[0] = UniqueRnd(49);
-            frm1.OptionIndex[1] = UniqueRnd(49);
-            frm1.OptionIndex[2] = UniqueRnd(49);
+            frm1.OptionIndex[0] = frm1.UniqueRnd(49);
+            frm1.OptionIndex[1] = frm1.UniqueRnd(49);
+            frm1.OptionIndex[2] = frm1.UniqueRnd(49);
             //stores a random index for each option in the optionIndex array
             frm1.MeaningIndex = rnd.Next(3);
             engWord.Text = Frm.Meaning[frm1.OptionIndex[frm1.MeaningIndex]];//chooses a random index from the any of the index the options are using
@@ -97,28 +97,7 @@ namespace Computer_Programme
             form.Show();//opens new form
         }
 
-        public int UniqueRnd(int maxValue)//method to choose a different random number each time it is run
-        {
-            while (true)//while method keeps on going until a number is returned
-            {
-                frm1.Unique = true;//assumes that the number is unique at first until proved otherwise
-                frm1.RndNumber = rnd.Next(maxValue + 1);//chooses a random number below 50
 
-                foreach (int usedNumber in frm1.UsedNumbers)//goes through each number in the usedNumbers array
-                {  
-                    if (frm1.RndNumber == usedNumber)
-                    { 
-                        frm1.Unique = false;//if a number in the array is the same as this number then unique is false and a value isn't returned and the process repeats
-                    }
-                }
-                if (frm1.Unique == true)
-                {
-                    frm1.UsedNumbers[frm1.Index] = frm1.RndNumber;//puts the new unique random number in the array of used numbers
-                    frm1.Index++;//changes the current index of the used number to be placed in
-                    return frm1.RndNumber;
-                }
-            }     
-        }
 
         public Form1() =>  InitializeComponent();//initializing this form
 
