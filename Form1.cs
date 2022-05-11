@@ -97,8 +97,6 @@ namespace Computer_Programme
             form.Show();//opens new form
         }
 
-
-
         public Form1() =>  InitializeComponent();//initializing this form
 
         private void option1_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 1;//when option 1 is pressed

@@ -9,7 +9,8 @@ namespace Computer_Programme
     public class Frm
     {
         public bool Unique, Flag;
-        public int RndNumber, SecsLeft, Counter, Index, Score, OptionNumber;
+        public int SecsLeft, Counter, Index, Score, OptionNumber;
+        private int RndNumber;
         public int MeaningIndex;
         public static string[] MaoriWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hīkoi", "hui", "iti", "iwi", "kai",
             "karakia", "kaumatua", "kauri", "kiwi", "koha", "kōhanga reo", "mahi", "mana", "manuhiri", "Māori", "marae",
@@ -31,6 +32,11 @@ namespace Computer_Programme
             "(the language Māori people speak)", "(ancestor)", " (reptiles endemic to New Zealand, the order Rhynchocephalia)",
             "(woman, wife)", "(water)", "(song or chant)", "(canoe, canoe group)", " (the art and practise of speech-making)",
             "(genealogy, to recite genealogy)", "(extended family)", "(land, homeland)" };
+        public static string[] CorrectionWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hikoi", "hui", "iti", "iwi", "kai",
+            "karakia", "kaumatua", "kauri", "kiwi", "koha", "kohanga reo", "mahi", "mana", "manuhiri", "Maori", "marae",
+            "maunga", "moa", "moana", "motu", "nui", "pa", "Pakeha", "pounamu", "puku", "rangatira", "taihoa", "tama",
+            "tamahine", "tamariki", "tane", "tangi", "taonga", "tapu", "Maori", "tipuna", "tuatara", "wahine",
+            "wai", "waiata", "waka", "whaikorero", "whakapapa", "whanau", "whenua" };
         public int [] UsedNumbers, OptionIndex;
 
         public Frm(int secsLeft, int counter, int index, int score, int optionNumber, int[] usedNumbers, int[] optionIndex)
@@ -42,6 +48,15 @@ namespace Computer_Programme
             this.OptionNumber = optionNumber;
             this.UsedNumbers = usedNumbers;
             this.OptionIndex = optionIndex;
+        }
+
+        public Frm(int secsLeft, int counter, int index, int score, int[] usedNumbers)
+        {
+            this.SecsLeft = secsLeft;
+            this.Counter = counter;
+            this.Index = index;
+            this.Score = score;
+            this.UsedNumbers = usedNumbers;
         }
 
         public int UniqueRnd(int maxValue)//method to choose a different random number each time it is run
