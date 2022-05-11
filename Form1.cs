@@ -46,10 +46,11 @@ namespace Computer_Programme
 {
     public partial class Form1 : Form
     {
+        Frm mcq = new Frm(50, 0, 0, 0, 0, new int[30], new int[3]);
+        Random rnd = new Random();
         bool flag;//to keep in count if values are to be refreshed just yet or not
         int secsLeft = 50;//time left to complete the programme
         int counter = 0;//the counter for the amounts of questions completed and the screen has refreshed;
-        Random rnd = new Random();
         int index = 0;//the counter for index for the new used number to go to
         int score = 0;//the counter for current score
         int optionNumber = 0;//the variable for which option is currently pressed
@@ -133,7 +134,7 @@ namespace Computer_Programme
             while (true)//while method keeps on going until a number is returned
             {
                 bool unique = true;//assumes that the number is unique at first until proved otherwise
-                int rndNumber = rnd.Next(maxValue + 1);//chooses a random number below 50
+                int rndNumber = rnd.Next(20);//chooses a random number below 50
 
                 foreach (int usedNumber in usedNumbers)//goes through each number in the usedNumbers array
                 {  
@@ -170,6 +171,7 @@ namespace Computer_Programme
                 CheckScore();
                 flag = true;//if the tickbox is being pressed to check the answer
                 return;//to not refresh the values until the user has read if they got the answer correct or not
+
             }
             
             if (counter == 10)//when all the questions have been asked, it Exits
