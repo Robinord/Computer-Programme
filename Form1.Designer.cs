@@ -155,6 +155,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Māori quiz";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
 
         }

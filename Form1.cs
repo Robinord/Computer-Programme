@@ -105,6 +105,10 @@ namespace Computer_Programme
 
         private void option3_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 3;//when option 3 is pressed
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();//so that the previous hidden form 1 closes along aswell
+
+
+
         private void tickBox_Click(object sender, EventArgs e)//When tick box is clicked
         {    
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
@@ -150,5 +154,7 @@ namespace Computer_Programme
 
             frm1.SecsLeft--;
         }
+
+
     }
 }

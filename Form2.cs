@@ -87,15 +87,22 @@ namespace Computer_Programme
         public void Exit()
         {
             timer.Stop();
-            if (frm2.Score == 10)//opens a box to show text
+            string message = $"You got {frm2.Score} out of 10, would you like to restart?";
+            string caption = "Congratulations";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");
+                this.Hide();//hides the current for when the new form opens
+                Form1 form = new Form1();
+                form.Show();//opens new form;
             }
             else
             {
-                MessageBox.Show($"You got {frm2.Score} out of 10", "Congratulations");
+                Application.Exit();//Exits the whole programme including the previous form
             }
-            Application.Exit();//Exits the whole programme including the previous form
         }
         public void Run()
         {
