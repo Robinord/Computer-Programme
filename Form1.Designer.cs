@@ -68,6 +68,7 @@
             // 
             // option2
             // 
+            this.option2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.option2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(158)))), ((int)(((byte)(159)))));
             this.option2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.option2.Location = new System.Drawing.Point(459, 219);

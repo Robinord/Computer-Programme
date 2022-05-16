@@ -79,6 +79,7 @@ namespace Computer_Programme
                 engWord.Text = $"Incorrect answer! Correct answer was: {Frm.MaoriWords[frm1.OptionIndex[frm1.MeaningIndex]]}";
             }   // just to let the user know that they got it uncorrect and what the real answer is
             timer.Stop();//to stop the timer while the user reads if they got the answer right or not
+
         }   
 
         public void Exit()
@@ -92,18 +93,81 @@ namespace Computer_Programme
             {
                 MessageBox.Show($"You got {frm1.Score} out of 10", "Congratulations");//opens a box to show text
             }
-            this.Hide();//hides the current for when the new form opens
+            this.Close();//hides the current for when the new form opens
             Form2 form = new Form2();
             form.Show();//opens new form
         }
 
         public Form1() =>  InitializeComponent();//initializing this form
 
-        private void option1_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 1;//when option 1 is pressed
+        private void option1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!frm1.Flag)
+            {
+                frm1.OptionNumber = 1;//when option 1 is pressed
+            }
+            else
+            {
+                switch (frm1.OptionNumber)
+                {
+                    case 2:
+                        option2.Checked = true;
+                        break;//make if statement to unchech when showing correct or not
+                    case 3:
+                        option3.Checked = true;
+                        break;
 
-        private void option2_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 2;//when option  2 is pressed
+                }
+            }
 
-        private void option3_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 3;//when option 3 is pressed
+            Console.WriteLine(1);
+        }
+
+        private void option2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!frm1.Flag)
+            {
+                frm1.OptionNumber = 2;//when option 1 is pressed
+            }
+            else
+            {
+                switch (frm1.OptionNumber)
+                {
+                    case 1:
+                        option1.Checked = true;
+                        break;//make if statement to unchech when showing correct or not
+                    case 3:
+                        option3.Checked = true;
+                        break;
+
+                }
+            }
+            Console.WriteLine(2);
+
+        }
+
+        private void option3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!frm1.Flag)
+            {
+                frm1.OptionNumber = 3;//when option 1 is pressed
+            }
+            else
+            {
+                switch (frm1.OptionNumber)
+                {
+                    case 1:
+                        option1.Checked = true;
+                        break;//make if statement to unchech when showing correct or not
+                    case 2:
+                        option2.Checked = true;
+                        break;
+
+                }
+            }
+            Console.WriteLine(3);
+
+        }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();//so that the previous hidden form 1 closes along aswell
 
