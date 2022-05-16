@@ -89,10 +89,8 @@ namespace Computer_Programme
             timer.Stop();
             string message = $"You got {frm2.Score} out of 10, would you like to restart?";
             string caption = "Congratulations";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
-
+            var result = MessageBox.Show(message, caption,MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                                         
             if (result == DialogResult.Yes)
             {
                 this.Hide();//hides the current for when the new form opens
