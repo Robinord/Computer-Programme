@@ -65,6 +65,7 @@ namespace Computer_Programme
 
         public void CheckScore()
         {
+            timer.Stop();//to stop the timer while the user reads if they got the answer right or not
             question.Text = "Press checkbox to continue";
             if (frm1.OptionNumber-1 == frm1.MeaningIndex && frm1.OptionNumber != 0)//just to confirm that a score isn't added if no options are selected
             { 
@@ -78,7 +79,7 @@ namespace Computer_Programme
                 engWord.ForeColor = Color.Red;
                 engWord.Text = $"Incorrect answer! Correct answer was: {Frm.MaoriWords[frm1.OptionIndex[frm1.MeaningIndex]]}";
             }   // just to let the user know that they got it uncorrect and what the real answer is
-            timer.Stop();//to stop the timer while the user reads if they got the answer right or not
+           
 
         }   
 
