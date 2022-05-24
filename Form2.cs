@@ -107,6 +107,10 @@ namespace Computer_Programme
         {
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
             timer.Start();
+            if (frm2.Counter == 0)
+            {
+                input.Show();
+            }
             if (frm2.Counter >= 1 && !frm2.Flag)
             //so that score isn't checked the very first time the tickbox or enter is used and so that it doesn't check score when trying to skip the correct or incorrect message.
             {
@@ -156,6 +160,11 @@ namespace Computer_Programme
                 Exit();//exits the programme when the timer runs out
             }
             frm2.SecsLeft--;
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            input.Hide();
         }
     }
 }
