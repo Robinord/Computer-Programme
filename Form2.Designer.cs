@@ -40,6 +40,7 @@
             // 
             // input
             // 
+            this.input.Enabled = false;
             this.input.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.input.Location = new System.Drawing.Point(441, 281);
             this.input.Name = "input";

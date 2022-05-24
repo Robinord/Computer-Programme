@@ -58,10 +58,11 @@ namespace Computer_Programme
             frm2.MeaningIndex = frm2.UniqueRnd(49);//made the value a variable because it is used again in Check Score method
             engWord.Text = Frm.Meaning[frm2.MeaningIndex];
             engWord.ForeColor = Color.Black;
-            question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
+            question.Text = " Type the Maori word with the corresponding meaning. Press the checkbox to continue.";
         }
         public void CheckScore()
-        {
+        {   
+            timer.Stop();//to stop the timer while the user reads if they got the answer right or not
             question.Text = "Press checkbox or enter key to continue";
             if (answer == null)//to noot run into error if user doesn't enter anything
             {
@@ -79,7 +80,7 @@ namespace Computer_Programme
                 engWord.ForeColor = Color.Red;
                 engWord.Text = $"Incorrect answer! Correct answer was: {Frm.MaoriWords[frm2.MeaningIndex]}";
             }   // just to let the user know that they got it uncorrect and what the real answer is
-            timer.Stop();//to stop the timer while the user reads if they got the answer right or not
+            input.Enabled = false;
 
         }
 
@@ -119,6 +120,8 @@ namespace Computer_Programme
             }
             if (frm2.Counter < 10)//to refresh the value on screen and update the progress, except the very last time when all questions are done
             {
+                input.Enabled = true;
+                input.Focus();
                 RefreshScreen();
                 progress.Text = $"Question: {frm2.Counter + 1} / 10";//shows the progress
                 frm2.Flag = false;

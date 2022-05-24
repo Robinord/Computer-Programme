@@ -37,7 +37,7 @@ namespace Computer_Programme
             "maunga", "moa", "moana", "motu", "nui", "pa", "Pakeha", "pounamu", "puku", "rangatira", "taihoa", "tama",
             "tamahine", "tamariki", "tane", "tangi", "taonga", "tapu", "Maori", "tipuna", "tuatara", "wahine",
             "wai", "waiata", "waka", "whaikorero", "whakapapa", "whanau", "whenua" };
-        public int [] UsedNumbers, OptionIndex;
+        public int[] UsedNumbers, OptionIndex;
 
         public Frm(int secsLeft, int counter, int index, int score, int optionNumber, int[] usedNumbers, int[] optionIndex)
         {
@@ -58,6 +58,7 @@ namespace Computer_Programme
             this.Score = score;
             this.UsedNumbers = usedNumbers;
         }
+
 
         public int UniqueRnd(int maxValue)//method to choose a different random number each time it is run
         {

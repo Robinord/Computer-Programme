@@ -79,7 +79,10 @@ namespace Computer_Programme
                 engWord.ForeColor = Color.Red;
                 engWord.Text = $"Incorrect answer! Correct answer was: {Frm.MaoriWords[frm1.OptionIndex[frm1.MeaningIndex]]}";
             }   // just to let the user know that they got it uncorrect and what the real answer is
-           
+            option1.Enabled = false;
+            option2.Enabled = false;
+            option3.Enabled = false;
+
 
         }   
 
@@ -94,81 +97,17 @@ namespace Computer_Programme
             {
                 MessageBox.Show($"You got {frm1.Score} out of 10", "Congratulations");//opens a box to show text
             }
-            this.Close();//hides the current for when the new form opens
+            this.Hide();//hides the current for when the new form opens
             Form2 form = new Form2();
             form.Show();//opens new form
         }
 
         public Form1() =>  InitializeComponent();//initializing this form
 
-        private void option1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!frm1.Flag)
-            {
-                frm1.OptionNumber = 1;//when option 1 is pressed
-            }
-            else
-            {
-                switch (frm1.OptionNumber)
-                {
-                    case 2:
-                        option2.Checked = true;
-                        break;//make if statement to unchech when showing correct or not
-                    case 3:
-                        option3.Checked = true;
-                        break;
 
-                }
-            }
-
-            Console.WriteLine(1);
-        }
-
-        private void option2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!frm1.Flag)
-            {
-                frm1.OptionNumber = 2;//when option 1 is pressed
-            }
-            else
-            {
-                switch (frm1.OptionNumber)
-                {
-                    case 1:
-                        option1.Checked = true;
-                        break;//make if statement to unchech when showing correct or not
-                    case 3:
-                        option3.Checked = true;
-                        break;
-
-                }
-            }
-            Console.WriteLine(2);
-
-        }
-
-        private void option3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!frm1.Flag)
-            {
-                frm1.OptionNumber = 3;//when option 1 is pressed
-            }
-            else
-            {
-                switch (frm1.OptionNumber)
-                {
-                    case 1:
-                        option1.Checked = true;
-                        break;//make if statement to unchech when showing correct or not
-                    case 2:
-                        option2.Checked = true;
-                        break;
-
-                }
-            }
-            Console.WriteLine(3);
-
-        }
+        private void option1_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 1;//when option 1 is pressed
+        private void option2_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 2;//when option 1 is pressed
+        private void option3_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 3;//when option 1 is pressed
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();//so that the previous hidden form 1 closes along aswell
 
@@ -178,6 +117,9 @@ namespace Computer_Programme
         {    
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
             timer.Start();//to start the time when tick box is pressed
+            option1.Show();
+            option2.Show();
+            option3.Show();
 
             if (frm1.Counter >= 1 && !frm1.Flag)
             //so that score isn't checked the very first time the tickbox is clicked and so that it doesn't check score when trying to skip the correct or incorrect message.
@@ -187,15 +129,14 @@ namespace Computer_Programme
                 return;//to not refresh the values until the user has read if they got the answer correct or not
             }
             
-            if (frm1.Counter == 10)//when all the questions have been asked, it Exits
-            {
-                Exit();
-            }
 
             if (frm1.Counter < 10)//to refresh the values on screen, except the very last time when all questions are done
-            {
+            {   
                 RefreshScreen();
                 progress.Text = $"Question: {frm1.Counter + 1} / 10";
+                option1.Enabled = true;
+                option2.Enabled = true;
+                option3.Enabled = true;
                 option1.Checked = false;
                 option2.Checked = false;
                 option3.Checked = false;
@@ -203,7 +144,13 @@ namespace Computer_Programme
                 frm1.OptionNumber = 0;
                 frm1.Flag = false;
             }
-           
+
+            if (frm1.Counter == 10)//when all the questions have been asked, it Exits
+            {
+                Exit();
+            }
+
+
             frm1.Counter++;//updates the counter for the number of time the TickBox has been pressed
  
         }
