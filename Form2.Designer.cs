@@ -120,6 +120,7 @@
             this.Controls.Add(this.question);
             this.Controls.Add(this.engWord);
             this.Controls.Add(this.input);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Form2";
             this.Text = "Maori Quiz";
