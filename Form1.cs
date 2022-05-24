@@ -117,9 +117,13 @@ namespace Computer_Programme
         {    
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
             timer.Start();//to start the time when tick box is pressed
-            option1.Show();
-            option2.Show();
-            option3.Show();
+            if (frm1.Counter == 0)
+            {
+                option1.Show();
+                option2.Show();
+                option3.Show();
+            }
+           
 
             if (frm1.Counter >= 1 && !frm1.Flag)
             //so that score isn't checked the very first time the tickbox is clicked and so that it doesn't check score when trying to skip the correct or incorrect message.
@@ -167,6 +171,11 @@ namespace Computer_Programme
             frm1.SecsLeft--;
         }
 
-
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            option1.Hide();
+            option2.Hide();
+            option3.Hide();
+        }
     }
 }

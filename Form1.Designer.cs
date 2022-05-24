@@ -58,9 +58,9 @@
             this.option1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(158)))), ((int)(((byte)(159)))));
             this.option1.Enabled = false;
             this.option1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.option1.Location = new System.Drawing.Point(190, 219);
+            this.option1.Location = new System.Drawing.Point(168, 233);
             this.option1.Name = "option1";
-            this.option1.Size = new System.Drawing.Size(100, 50);
+            this.option1.Size = new System.Drawing.Size(100, 36);
             this.option1.TabIndex = 3;
             this.option1.TabStop = true;
             this.option1.Text = "Example 1";
@@ -73,9 +73,9 @@
             this.option2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(158)))), ((int)(((byte)(159)))));
             this.option2.Enabled = false;
             this.option2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.option2.Location = new System.Drawing.Point(459, 219);
+            this.option2.Location = new System.Drawing.Point(455, 233);
             this.option2.Name = "option2";
-            this.option2.Size = new System.Drawing.Size(100, 50);
+            this.option2.Size = new System.Drawing.Size(100, 36);
             this.option2.TabIndex = 4;
             this.option2.TabStop = true;
             this.option2.Text = "Example 2";
@@ -87,9 +87,9 @@
             this.option3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(158)))), ((int)(((byte)(159)))));
             this.option3.Enabled = false;
             this.option3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.option3.Location = new System.Drawing.Point(712, 219);
+            this.option3.Location = new System.Drawing.Point(717, 233);
             this.option3.Name = "option3";
-            this.option3.Size = new System.Drawing.Size(100, 50);
+            this.option3.Size = new System.Drawing.Size(100, 36);
             this.option3.TabIndex = 5;
             this.option3.TabStop = true;
             this.option3.Text = "Example 3";
@@ -100,7 +100,7 @@
             // 
             this.tickBox.BackColor = System.Drawing.Color.MediumAquamarine;
             this.tickBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tickBox.Location = new System.Drawing.Point(472, 347);
+            this.tickBox.Location = new System.Drawing.Point(468, 347);
             this.tickBox.Name = "tickBox";
             this.tickBox.Size = new System.Drawing.Size(75, 57);
             this.tickBox.TabIndex = 6;
@@ -161,6 +161,7 @@
             this.Name = "Form1";
             this.Text = "Māori quiz";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
