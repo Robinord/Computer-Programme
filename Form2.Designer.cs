@@ -60,9 +60,10 @@
             // 
             // question
             // 
-            this.question.BackColor = System.Drawing.Color.RosyBrown;
+            this.question.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(100)))), ((int)(((byte)(167)))));
             this.question.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.question.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.question.ForeColor = System.Drawing.SystemColors.Control;
             this.question.Location = new System.Drawing.Point(100, 100);
             this.question.Name = "question";
             this.question.Size = new System.Drawing.Size(800, 40);
@@ -86,6 +87,7 @@
             // progress
             // 
             this.progress.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progress.ForeColor = System.Drawing.SystemColors.Control;
             this.progress.Location = new System.Drawing.Point(706, 27);
             this.progress.Name = "progress";
             this.progress.Size = new System.Drawing.Size(256, 48);
@@ -96,6 +98,7 @@
             // timeLeft
             // 
             this.timeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLeft.ForeColor = System.Drawing.SystemColors.Control;
             this.timeLeft.Location = new System.Drawing.Point(12, 27);
             this.timeLeft.Name = "timeLeft";
             this.timeLeft.Size = new System.Drawing.Size(256, 48);
@@ -112,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(135)))));
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.timeLeft);
             this.Controls.Add(this.progress);

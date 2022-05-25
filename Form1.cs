@@ -59,7 +59,7 @@ namespace Computer_Programme
             option1.Text = Frm.MaoriWords[frm1.OptionIndex[0]];
             option2.Text = Frm.MaoriWords[frm1.OptionIndex[1]];
             option3.Text = Frm.MaoriWords[frm1.OptionIndex[2]];
-            engWord.ForeColor = Color.Black;
+            engWord.ForeColor = Color.White;
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
         }
 
@@ -70,13 +70,13 @@ namespace Computer_Programme
             if (frm1.OptionNumber-1 == frm1.MeaningIndex && frm1.OptionNumber != 0)//just to confirm that a score isn't added if no options are selected
             { 
                 frm1.Score++;
-                engWord.ForeColor = Color.Green;
+                engWord.ForeColor = Color.LightGreen;
                 engWord.Text = "Correct Answer!";//to let the user know if they got the answer correct
             }
             //if the option number chosen is the same as the option's meaning that was displayed then add one to the score
             else
             {
-                engWord.ForeColor = Color.Red;
+                engWord.ForeColor = Color.LightSalmon;
                 engWord.Text = $"Incorrect answer! Correct answer was: {Frm.MaoriWords[frm1.OptionIndex[frm1.MeaningIndex]]}";
             }   // just to let the user know that they got it uncorrect and what the real answer is
             option1.Enabled = false;
@@ -91,11 +91,11 @@ namespace Computer_Programme
             timer.Stop();
             if (frm1.Score == 10)
             {
-                MessageBox.Show("👏Wow! 🎊 You got all correct!🎉", "Congratulations!");//opens a box to show text
+                MessageBox.Show("👏Wow! 🎊 You got all correct!🎉,  Level 2 will now begin", "Congratulations!");//opens a box to show text
             }
             else
             {
-                MessageBox.Show($"You got {frm1.Score} out of 10", "Congratulations");//opens a box to show text
+                MessageBox.Show($"You got {frm1.Score} out of 10, Level 2 will now begin", "Congratulations");//opens a box to show text
             }
             this.Hide();//hides the current for when the new form opens
             Form2 form = new Form2();

@@ -57,7 +57,7 @@ namespace Computer_Programme
         {
             frm2.MeaningIndex = frm2.UniqueRnd(49);//made the value a variable because it is used again in Check Score method
             engWord.Text = Frm.Meaning[frm2.MeaningIndex];
-            engWord.ForeColor = Color.Black;
+            engWord.ForeColor = Color.White;
             question.Text = " Type the Maori word with the corresponding meaning. Press the checkbox to continue.";
         }
         public void CheckScore()
@@ -71,13 +71,13 @@ namespace Computer_Programme
             if (answer.ToLower() == (Frm.MaoriWords[frm2.MeaningIndex]).ToLower() || answer.ToLower() == (Frm.CorrectionWords[frm2.MeaningIndex]).ToLower())//to check if the answer entered is right
             {
                 frm2.Score++;
-                engWord.ForeColor = Color.Green;
+                engWord.ForeColor = Color.LightGreen;
                 engWord.Text = "Correct Answer!";//to let the user know if they got the answer correct
             }
             //if the option number chosen is the same as the option's meaning that was displayed then add one to the score
             else
             {
-                engWord.ForeColor = Color.Red;
+                engWord.ForeColor = Color.LightSalmon;
                 engWord.Text = $"Incorrect answer! Correct answer was: {Frm.MaoriWords[frm2.MeaningIndex]}";
             }   // just to let the user know that they got it uncorrect and what the real answer is
             input.Enabled = false;

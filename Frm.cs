@@ -31,7 +31,7 @@ namespace Computer_Programme
             "(treasured possessions or cultural items, anything precious)", "(sacred, not to be touched, to be avoided because sacred)",
             "(the language Māori people speak)", "(ancestor)", " (reptiles endemic to New Zealand, the order Rhynchocephalia)",
             "(woman, wife)", "(water)", "(song or chant)", "(canoe, canoe group)", " (the art and practise of speech-making)",
-            "(genealogy, to recite genealogy)", "(extended family)", "(land, homeland)" };
+            "(genealogy, to recite genealogy)", "(family)", "(land, homeland)" };
         public static string[] CorrectionWords = { "Aotearoa", "aroha", "awa", "haka", "hangi", "hapu", "hikoi", "hui", "iti", "iwi", "kai",
             "karakia", "kaumatua", "kauri", "kiwi", "koha", "kohanga reo", "mahi", "mana", "manuhiri", "Maori", "marae",
             "maunga", "moa", "moana", "motu", "nui", "pa", "Pakeha", "pounamu", "puku", "rangatira", "taihoa", "tama",

@@ -42,9 +42,9 @@
             // 
             // question
             // 
-            this.question.BackColor = System.Drawing.Color.RosyBrown;
-            this.question.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.question.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(100)))), ((int)(((byte)(167)))));
             this.question.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.question.ForeColor = System.Drawing.SystemColors.Info;
             this.question.Location = new System.Drawing.Point(100, 100);
             this.question.Name = "question";
             this.question.Size = new System.Drawing.Size(800, 40);
@@ -55,7 +55,7 @@
             // 
             // option1
             // 
-            this.option1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(158)))), ((int)(((byte)(159)))));
+            this.option1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
             this.option1.Enabled = false;
             this.option1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.option1.Location = new System.Drawing.Point(168, 233);
@@ -70,7 +70,7 @@
             // option2
             // 
             this.option2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.option2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(158)))), ((int)(((byte)(159)))));
+            this.option2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
             this.option2.Enabled = false;
             this.option2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.option2.Location = new System.Drawing.Point(455, 233);
@@ -84,7 +84,8 @@
             // 
             // option3
             // 
-            this.option3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(158)))), ((int)(((byte)(159)))));
+            this.option3.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.option3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(164)))));
             this.option3.Enabled = false;
             this.option3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.option3.Location = new System.Drawing.Point(717, 233);
@@ -111,6 +112,7 @@
             // engWord
             // 
             this.engWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F);
+            this.engWord.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.engWord.Location = new System.Drawing.Point(100, 150);
             this.engWord.Name = "engWord";
             this.engWord.Size = new System.Drawing.Size(800, 80);
@@ -119,7 +121,8 @@
             // 
             // progress
             // 
-            this.progress.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progress.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progress.ForeColor = System.Drawing.SystemColors.Control;
             this.progress.Location = new System.Drawing.Point(712, 38);
             this.progress.Name = "progress";
             this.progress.Size = new System.Drawing.Size(256, 48);
@@ -135,6 +138,7 @@
             // timeLeft
             // 
             this.timeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLeft.ForeColor = System.Drawing.SystemColors.Control;
             this.timeLeft.Location = new System.Drawing.Point(12, 38);
             this.timeLeft.Name = "timeLeft";
             this.timeLeft.Size = new System.Drawing.Size(256, 48);
@@ -146,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(135)))));
             this.ClientSize = new System.Drawing.Size(980, 457);
             this.Controls.Add(this.timeLeft);
             this.Controls.Add(this.progress);
