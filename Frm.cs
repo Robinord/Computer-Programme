@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+This is the class that contains the data for both the forms
+initiated all variables that will be used;
+list of Maori Words = string[50 values]
+list of the meanings = string [50 values]
+list of alternate Maori words = string[50 values]
+Constructor for form(secsLeft, counter, index, score, optionNumber, array usedNumbers, array optionIndex)
+    This Variable = variable;
+
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -76,7 +76,7 @@
             // 
             this.tickBox.BackColor = System.Drawing.Color.MediumAquamarine;
             this.tickBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tickBox.Location = new System.Drawing.Point(460, 338);
+            this.tickBox.Location = new System.Drawing.Point(456, 338);
             this.tickBox.Name = "tickBox";
             this.tickBox.Size = new System.Drawing.Size(75, 57);
             this.tickBox.TabIndex = 10;
