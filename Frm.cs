@@ -1,11 +1,21 @@
 ﻿/*
 This is the class that contains the data for both the forms
-initiated all variables that will be used;
+initiated all variables that will be used in this class;
 list of Maori Words = string[50 values]
-list of the meanings = string [50 values]
+list of the Meanings = string [50 values]
 list of alternate Maori words = string[50 values]
 Constructor for form(secsLeft, counter, index, score, optionNumber, array usedNumbers, array optionIndex)
-    This Variable = variable;
+    This Variable = variableInClass
+Constructor overload for form2 specifically(secsLeft, counter, index, score, array usedNumbers)
+    This variable = VariableInClass;
+Static Method Unique Random Number(max value)
+    While(Until Returns)
+        Generate Random Number(below max value + 1)
+        if Random Number already used:
+            Generate another Random Number(below max value + 1)
+        else:
+            Save Random Number in Used Numbers array for that form
+            Return Random Number
 
 */
 using System;
