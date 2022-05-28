@@ -58,6 +58,7 @@ namespace Computer_Programme
             "tamahine", "tamariki", "tane", "tangi", "taonga", "tapu", "Maori", "tipuna", "tuatara", "wahine",
             "wai", "waiata", "waka", "whaikorero", "whakapapa", "whanau", "whenua" };
         public int[] UsedNumbers, OptionIndex;
+        public string answer;
 
         public Frm(int secsLeft, int counter, int index, int score, int optionNumber, int[] usedNumbers, int[] optionIndex)
         {

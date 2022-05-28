@@ -1,33 +1,31 @@
 ﻿/*
 This programme is a Multiple Choice Questions quiz
-list of MaoriWords = string[50 values]
-list of the meanings = string [50 values]
-Timer Event()
-    If 50 seconds passed;
-        Call Exit Method()
+Define this form as an object calleed frm1 for the frm class()
+When Form Loads()
+    Hide options
+Refresh Screen Method()
+    Option 1 = frm.MaoriWords[Call Unique Random Number method from frm class(max value:49)]
+    Option 2 = frm.MaoriWords[Call Unique Random Number method from frm class(max value:49)]
+    Option 3 = frm.MaoriWords[Call Unique Random Number method from frm class(max value:49)]
+    Meaning = Meaning of Option 1, Option 2 or Option 3
+Check Score Method()
+    If option Number chosen is equal to option used by meaning:
+        Score + 1
+        Display "Correct Answer"
+    Else
+        Display the right answer
 if tickBox pressed:
+    if first time being pressed
+        Show all options
     Call refresh method()
     Call score method()
     Uncheck all the boxes
     if pressed 10 times:
         Call Exit Method()
     Update Progress Label
-Refresh Screen Method()
-    Option 1 = MaoriWords[Call Unique Random Number method(max value:49)]
-    Option 2 = MaoriWords[Call Unique Random Number method(max value:49)]
-    Option 3 = MaoriWords[Call Unique Random Number method(max value:49)]
-    Meaning = Meaning of Option 1, Option 2 or Option 3
-Check Score Method()
-    If option Number chosen is equal to option used by meaning:
-        Score + 1
-Unique Random Number Method()
-    While(Until Returns)
-        Generate Random Number(below 50)
-        if Random Number already used:
-            Generate another Random Number(below 50)
-        else:
-            Save Random Number as Used Numbers
-            Return Random Number
+Timer Event()
+    If 50 seconds passed;
+        Call Exit Method()
 Exit Method()
     Show score 
     Open Form2
@@ -48,6 +46,19 @@ namespace Computer_Programme
     {
         Frm frm1 = new Frm(50, 0, 0, 0, 0, new int[30], new int[3]);
         Random rnd = new Random();
+
+        public Form1() => InitializeComponent();//initializing this form
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            option1.Hide();
+            option2.Hide();
+            option3.Hide();
+        }
+
+        private void option1_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 1;//when option 1 is pressed
+        private void option2_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 2;//when option 1 is pressed
+        private void option3_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 3;//when option 1 is pressed
+
         public void RefreshScreen()//made to refresh all the values on screen
         {
             frm1.OptionIndex[0] = frm1.UniqueRnd(49);
@@ -66,7 +77,9 @@ namespace Computer_Programme
         public void CheckScore()
         {
             timer.Stop();//to stop the timer while the user reads if they got the answer right or not
-            question.Text = "Press checkbox to continue";
+            option1.Enabled = false;
+            option2.Enabled = false;
+            option3.Enabled = false;
             if (frm1.OptionNumber-1 == frm1.MeaningIndex && frm1.OptionNumber != 0)//just to confirm that a score isn't added if no options are selected
             { 
                 frm1.Score++;
@@ -79,43 +92,13 @@ namespace Computer_Programme
                 engWord.ForeColor = Color.LightSalmon;
                 engWord.Text = $"Incorrect answer! Correct answer was: {Frm.MaoriWords[frm1.OptionIndex[frm1.MeaningIndex]]}";
             }   // just to let the user know that they got it uncorrect and what the real answer is
-            option1.Enabled = false;
-            option2.Enabled = false;
-            option3.Enabled = false;
-
+            question.Text = "Press checkbox to continue";
 
         }   
-
-        public void Exit()
-        {
-            timer.Stop();
-            if (frm1.Score == 10)
-            {
-                MessageBox.Show("👏Wow! 🎊 You got all correct!🎉,  Level 2 will now begin", "Congratulations!");//opens a box to show text
-            }
-            else
-            {
-                MessageBox.Show($"You got {frm1.Score} out of 10, Level 2 will now begin", "Congratulations");//opens a box to show text
-            }
-            this.Hide();//hides the current for when the new form opens
-            Form2 form = new Form2();
-            form.Show();//opens new form
-        }
-
-        public Form1() =>  InitializeComponent();//initializing this form
-
-
-        private void option1_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 1;//when option 1 is pressed
-        private void option2_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 2;//when option 1 is pressed
-        private void option3_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 3;//when option 1 is pressed
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();//so that the previous hidden form 1 closes along aswell
-
 
 
         private void tickBox_Click(object sender, EventArgs e)//When tick box is clicked
         {    
-            question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
             timer.Start();//to start the time when tick box is pressed
             if (frm1.Counter == 0)
             {
@@ -154,9 +137,7 @@ namespace Computer_Programme
                 Exit();
             }
 
-
             frm1.Counter++;//updates the counter for the number of time the TickBox has been pressed
- 
         }
 
         private void timer_Tick(object sender, EventArgs e)//ticks at an interval of 1 second
@@ -170,12 +151,21 @@ namespace Computer_Programme
 
             frm1.SecsLeft--;
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        public void Exit()
         {
-            option1.Hide();
-            option2.Hide();
-            option3.Hide();
+            timer.Stop();
+            if (frm1.Score == 10)
+            {
+                MessageBox.Show("👏Wow! 🎊 You got all correct!🎉,  Level 2 will now begin", "Congratulations!");//opens a box to show text
+            }
+            else
+            {
+                MessageBox.Show($"You got {frm1.Score} out of 10, Level 2 will now begin", "Congratulations");//opens a box to show text
+            }
+            this.Hide();//hides the current for when the new form opens
+            Form2 form = new Form2();
+            form.Show();//opens new form
         }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();//so that the previous hidden form 1 closes along aswell
     }
 }
