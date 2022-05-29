@@ -18,7 +18,7 @@ if tickBox pressed:
     if first time being pressed
         Show all options
     Call refresh method()
-    Call score method()
+    Call check score method()
     Uncheck all the boxes
     if pressed 10 times:
         Call Exit Method()
@@ -29,6 +29,8 @@ Timer Event()
 Exit Method()
     Show score 
     Open Form2
+if close button pressed:
+    Exit the whole programme
  */
 using System;
 using System.Collections.Generic;
@@ -142,7 +144,7 @@ namespace Computer_Programme
 
         private void timer_Tick(object sender, EventArgs e)//ticks at an interval of 1 second
         {   
-            timeLeft.Text = $"Time left: {frm1.SecsLeft} secs";
+            timeLeft.Text = $"Time left: {frm1.SecsLeft} seconds";
            
             if (frm1.SecsLeft <= 0)
             {

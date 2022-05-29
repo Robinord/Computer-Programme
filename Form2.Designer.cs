@@ -41,10 +41,10 @@
             // input
             // 
             this.input.Enabled = false;
-            this.input.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.input.Location = new System.Drawing.Point(441, 281);
+            this.input.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.input.Location = new System.Drawing.Point(433, 281);
             this.input.Name = "input";
-            this.input.Size = new System.Drawing.Size(112, 26);
+            this.input.Size = new System.Drawing.Size(129, 31);
             this.input.TabIndex = 0;
             this.input.TextChanged += new System.EventHandler(this.input_TextChanged);
             this.input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.input_KeyDown);
@@ -52,10 +52,12 @@
             // engWord
             // 
             this.engWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.engWord.ForeColor = System.Drawing.SystemColors.Control;
             this.engWord.Location = new System.Drawing.Point(100, 155);
             this.engWord.Name = "engWord";
             this.engWord.Size = new System.Drawing.Size(800, 80);
             this.engWord.TabIndex = 8;
+            this.engWord.Text = "(After 80 seconds of attemting the questions, quiz will end)";
             this.engWord.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // question
@@ -103,7 +105,7 @@
             this.timeLeft.Name = "timeLeft";
             this.timeLeft.Size = new System.Drawing.Size(256, 48);
             this.timeLeft.TabIndex = 12;
-            this.timeLeft.Text = "Time left:  80 secs";
+            this.timeLeft.Text = "Time left:  80 seconds";
             this.timeLeft.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // timer

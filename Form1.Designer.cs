@@ -124,6 +124,7 @@
             this.engWord.Name = "engWord";
             this.engWord.Size = new System.Drawing.Size(800, 80);
             this.engWord.TabIndex = 7;
+            this.engWord.Text = "(After 50 seconds of attemting the questions, quiz will end)";
             this.engWord.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // progress
@@ -150,7 +151,7 @@
             this.timeLeft.Name = "timeLeft";
             this.timeLeft.Size = new System.Drawing.Size(256, 48);
             this.timeLeft.TabIndex = 9;
-            this.timeLeft.Text = "Time left:  50 secs";
+            this.timeLeft.Text = "Time left:  50 seconds";
             this.timeLeft.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
