@@ -128,7 +128,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "Form2";
-            this.Text = "Maori Quiz";
+            this.Text = "Maori Quiz - Level 2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
