@@ -49,12 +49,12 @@ namespace Computer_Programme
 {
     public partial class Form2 : Form
     {
-        Frm frm2 = new Frm(80, 0, 0, 0, new int[10]);
+        Frm frm2 = new Frm(80, 0, 0, 0, new int[10]);//made frm2 an object within the frm class which contains all values that this form will use
         Random rnd = new Random();
 
         public Form2() => InitializeComponent();//initializing this form
 
-        private void Form2_Load(object sender, EventArgs e) => input.Hide();
+        private void Form2_Load(object sender, EventArgs e) => input.Hide();//hide the textbox at the intro screen
 
         private void input_TextChanged(object sender, EventArgs e) => frm2.answer = input.Text;//to keep account of the text entered
 
@@ -65,7 +65,7 @@ namespace Computer_Programme
             engWord.ForeColor = Color.White;
             question.Text = " Type the Maori word with the corresponding meaning. Press the checkbox to continue.";
         }
-        public void CheckScore()
+        public void CheckScore()//method to check whether the user got the question correct or not
         {   
             timer.Stop();//to stop the timer while the user reads if they got the answer right or not
             input.Enabled = false;
@@ -90,7 +90,7 @@ namespace Computer_Programme
         }
 
 
-        public void Run()
+        public void Run()//to run the code to that manages all the other methods and how the code is to be run
         {
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
             timer.Start();
@@ -120,9 +120,6 @@ namespace Computer_Programme
             input.Clear();//to clear the text in the inputbox
             frm2.Counter++;//updates the counter for the number of time the TickBox has been pressed
         }
-
-       
-
         
         private void tickBox_Click(object sender, EventArgs e) => Run();
 
@@ -134,7 +131,7 @@ namespace Computer_Programme
                 Run();
             }
         }
-        private void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object sender, EventArgs e)//event that runs repeatedly at an interval of 1 second
         { 
 
             timeLeft.Text = $"Time left: {frm2.SecsLeft} seconds";

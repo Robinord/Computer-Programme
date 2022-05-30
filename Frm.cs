@@ -27,7 +27,7 @@ using System.Threading.Tasks;
 namespace Computer_Programme
 {
     public class Frm
-    {
+    {   //declare all the variables that I'll be using for this class
         public bool Unique, Flag;
         public int SecsLeft, Counter, Index, Score, OptionNumber;
         private int RndNumber;
@@ -60,7 +60,7 @@ namespace Computer_Programme
         public int[] UsedNumbers, OptionIndex;
         public string answer;
 
-        public Frm(int secsLeft, int counter, int index, int score, int optionNumber, int[] usedNumbers, int[] optionIndex)
+        public Frm(int secsLeft, int counter, int index, int score, int optionNumber, int[] usedNumbers, int[] optionIndex)//constructor to create objects in this class
         {
             this.SecsLeft = secsLeft;
             this.Counter = counter;
@@ -71,7 +71,7 @@ namespace Computer_Programme
             this.OptionIndex = optionIndex;
         }
 
-        public Frm(int secsLeft, int counter, int index, int score, int[] usedNumbers)
+        public Frm(int secsLeft, int counter, int index, int score, int[] usedNumbers)//constructor overload specifically for form2 as it doesn't need as many variables
         {
             this.SecsLeft = secsLeft;
             this.Counter = counter;

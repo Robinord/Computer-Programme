@@ -46,11 +46,11 @@ namespace Computer_Programme
 {
     public partial class Form1 : Form
     {
-        Frm frm1 = new Frm(50, 0, 0, 0, 0, new int[30], new int[3]);
+        Frm frm1 = new Frm(50, 0, 0, 0, 0, new int[30], new int[3]);//made frm1 an object within the frm clasa which contains all values that this form will use
         Random rnd = new Random();
 
         public Form1() => InitializeComponent();//initializing this form
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)//hide all the options at the intro screen
         {
             option1.Hide();
             option2.Hide();
@@ -58,10 +58,10 @@ namespace Computer_Programme
         }
 
         private void option1_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 1;//when option 1 is pressed
-        private void option2_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 2;//when option 1 is pressed
-        private void option3_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 3;//when option 1 is pressed
+        private void option2_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 2;//when option 2 is pressed
+        private void option3_CheckedChanged(object sender, EventArgs e) => frm1.OptionNumber = 3;//when option 3 is pressed
 
-        public void RefreshScreen()//made to refresh all the values on screen
+        public void RefreshScreen()//method made to refresh all the values on screen
         {
             frm1.OptionIndex[0] = frm1.UniqueRnd(49);
             frm1.OptionIndex[1] = frm1.UniqueRnd(49);
@@ -76,7 +76,7 @@ namespace Computer_Programme
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
         }
 
-        public void CheckScore()
+        public void CheckScore()//method to check whether the user got the question correct or not
         {
             timer.Stop();//to stop the timer while the user reads if they got the answer right or not
             option1.Enabled = false;
@@ -99,7 +99,7 @@ namespace Computer_Programme
         }   
 
 
-        private void tickBox_Click(object sender, EventArgs e)//When tick box is clicked
+        private void tickBox_Click(object sender, EventArgs e)//Event for when tick box is clicked
         {    
             timer.Start();//to start the time when tick box is pressed
             if (frm1.Counter == 0)
@@ -142,7 +142,7 @@ namespace Computer_Programme
             frm1.Counter++;//updates the counter for the number of time the TickBox has been pressed
         }
 
-        private void timer_Tick(object sender, EventArgs e)//ticks at an interval of 1 second
+        private void timer_Tick(object sender, EventArgs e)//event that runs repeatedly at an interval of 1 second
         {   
             timeLeft.Text = $"Time left: {frm1.SecsLeft} seconds";
            
@@ -153,7 +153,7 @@ namespace Computer_Programme
 
             frm1.SecsLeft--;
         }
-        public void Exit()
+        public void Exit()//A method to exit the programme
         {
             timer.Stop();
             if (frm1.Score == 10)
