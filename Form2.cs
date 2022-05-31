@@ -90,7 +90,7 @@ namespace Computer_Programme
         }
 
 
-        public void Run()//to run the code to that manages all the other methods and how the code is to be run
+        public void Run()//to run the code that manages all the other methods and how the code is to be run
         {
             question.Text = "Choose the word with the same meaning. Press the checkbox to continue.";
             timer.Start();
@@ -163,6 +163,5 @@ namespace Computer_Programme
         }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e) => Application.Exit();//so that the previous hidden form 1 closes along aswell
-
     }
 }

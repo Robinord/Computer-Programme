@@ -57,7 +57,7 @@
             this.engWord.Name = "engWord";
             this.engWord.Size = new System.Drawing.Size(800, 80);
             this.engWord.TabIndex = 8;
-            this.engWord.Text = "(After 80 seconds of attemting the questions, quiz will end)";
+            this.engWord.Text = "(After 80 seconds of attempting the questions, quiz will end)";
             this.engWord.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // question
