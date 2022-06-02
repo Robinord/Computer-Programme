@@ -46,7 +46,7 @@ namespace Computer_Programme
 {
     public partial class Form1 : Form
     {
-        Frm frm1 = new Frm(50, 0, 0, 0, 0, new int[30], new int[3]);//made frm1 an object within the frm clasa which contains all values that this form will use
+        Frm frm1 = new Frm(60, 0, 0, 0, 0, new int[30], new int[3]);//made frm1 an object within the frm clasa which contains all values that this form will use
         Random rnd = new Random();
 
         public Form1() => InitializeComponent();//initializing this form
